@@ -7,7 +7,6 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -25,7 +24,9 @@
       "output": "static"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",["expo-font",{
+        "fonts":["./assets/fonts"]
+      }]
     ],
     "experiments": {
       "typedRoutes": true

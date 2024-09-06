@@ -1,10 +1,11 @@
 import React from "react";
 import { Stack } from "expo-router";
-import { SafeAreaView } from "react-native";
+import { KeyboardAvoidingView, SafeAreaView } from "react-native";
 import { StyleSheet } from "react-native";
 
 export default function RootLayout() {
   return (
+
     <SafeAreaView style={styleSheet.container}>
       <Stack screenOptions={{
         headerShown: false
