@@ -1,14 +1,33 @@
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { useGlobalStyles } from '../GlobalStyles/GlobalStyles';
 
 const Welcome = () => {
+  const [globalStyles, loaded] = useGlobalStyles();
+  if (!loaded) {
+    return <Text>loading ..</Text>;
+  }
+
   return (
     <View style={styleSheet.container}>
       <View style={styleSheet.greetingContainer}>
-        <Text style={{ fontWeight: '600', fontSize: 20, color: 'white' }}>
-          {' '}
+        <Text
+          style={{
+            ...globalStyles.text,
+            fontWeight: '600',
+            fontSize: 20,
+            color: 'white',
+          }}
+        >
           Hey! Welcome{' '}
         </Text>
-        <Text style={{ textAlign: 'center', paddingTop: 0, color: 'white' }}>
+        <Text
+          style={{
+            ...globalStyles.text,
+            textAlign: 'center',
+            paddingTop: 0,
+            color: 'white',
+          }}
+        >
           We deliver on-demand organic fresh fruits directly from your nearby
           farms
         </Text>
@@ -17,12 +36,18 @@ const Welcome = () => {
           <TouchableOpacity
             style={styleSheet.createAccountContainer.createAccountBtn}
           >
-            <Text style={{ fontWeight: '600', fontSize: 20 }}>Get Started</Text>
+            <Text
+              style={{ ...globalStyles.text, fontWeight: '600', fontSize: 18 }}
+            >
+              Get Started
+            </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styleSheet.createAccountContainer.createAccountBtn}
           >
-            <Text style={{ fontWeight: '600', fontSize: 20 }}>
+            <Text
+              style={{ ...globalStyles.text, fontWeight: '600', fontSize: 18 }}
+            >
               I already have an account
             </Text>
           </TouchableOpacity>
