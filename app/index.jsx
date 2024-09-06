@@ -25,8 +25,8 @@ export default function App() {
     //     <View>
     //       <Text
     //         style={{
-    //           color: "white",
-    //           textAlign: "center",
+    //           color: 'white',
+    //           textAlign: 'center',
     //           fontWeight: 600,
     //           ...globalStyles.text,
     //           fontSize: 32,
@@ -60,7 +60,7 @@ export default function App() {
     //     </View>
     //     <View>
     //       <View
-    //         style={{ backgroundColor: "gray", height: 1, margin: 16 }}
+    //         style={{ backgroundColor: 'gray', height: 1, margin: 16 }}
     //       ></View>
     //     </View>
 
@@ -70,7 +70,7 @@ export default function App() {
     //       >
     //         <View style={styleSheet.signInBtn}>
     //           <Image
-    //             source={require("../assets/svg/google.png")}
+    //             source={require('../assets/svg/google.png')}
     //             style={styleSheet.socialIcons}
     //           />
     //           <Text style={{ ...globalStyles.text, fontSize: 16 }}>
@@ -83,7 +83,7 @@ export default function App() {
     //       >
     //         <View style={styleSheet.signInBtn}>
     //           <Image
-    //             source={require("../assets/svg/fb.png")}
+    //             source={require('../assets/svg/fb.png')}
     //             style={styleSheet.socialIcons}
     //           />
     //           <Text style={{ ...globalStyles.text, fontSize: 16 }}>
@@ -96,14 +96,14 @@ export default function App() {
     //       >
     //         <View style={styleSheet.signInBtn}>
     //           <Image
-    //             source={require("../assets/svg/apple.png")}
+    //             source={require('../assets/svg/apple.png')}
     //             style={styleSheet.socialIcons}
     //           />
     //           <Text
     //             style={{
     //               ...globalStyles.text,
     //               fontSize: 16,
-    //               fontWeight: "600",
+    //               fontWeight: '600',
     //             }}
     //           >
     //             Continue with Apple
