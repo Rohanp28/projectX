@@ -14,6 +14,7 @@ import { useGlobalStyles } from "./GlobalStyles/GlobalStyles";
 import SignUp from "../Components/SingupComponent";
 import RegionSeprator from "../Components/RegionSepratorComponent";
 import { SocialSign } from "../Components/SocialSignInComponent";
+import { LoginForm } from "../Components/LoginFormComponent";
 
 export default function App() {
   const [globalStyles, loaded] = useGlobalStyles();
@@ -23,7 +24,9 @@ export default function App() {
   return (
     <View style={styleSheet.container}>
       {/* signup component */}
-      <SignUp />
+      {/* <SignUp /> */}
+      {/* login component */}
+      <LoginForm />
       {/* region seprator */}
       <RegionSeprator />
       {/* socials signin buttons */}

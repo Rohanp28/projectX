@@ -7,6 +7,8 @@ import {
   View,
 } from "react-native";
 import { useGlobalStyles } from "../app/GlobalStyles/GlobalStyles";
+import { CustomTextInput } from "./CustomTextInput";
+import { CustomButton } from "./CustomButton/CustomButton";
 
 export default function SignUp() {
   const [globalStyles, loaded] = useGlobalStyles();
@@ -35,44 +37,22 @@ export default function SignUp() {
         </View>
 
         <View style={styleSheet.inputWrapper}>
-          <TextInput
-            placeholder="Enter your email"
+          <CustomTextInput
+            placeholder={"Enter Email"}
+            secureTextEntry={false}
             placeholderTextColor="white"
-            style={{
-              ...globalStyles.text,
-              ...styleSheet.inputContainer,
-              color: "white",
-            }}
           />
-          <TextInput
-            placeholder="Create password"
+          <CustomTextInput
+            placeholder={"Create Your Password"}
+            secureTextEntry={true}
             placeholderTextColor="white"
-            style={{
-              ...globalStyles.text,
-              ...styleSheet.inputContainer,
-              color: "white",
-            }}
-            secureTextEntry
           />
         </View>
 
         <View style={styleSheet.createAccountContainer}>
-          <TouchableOpacity
-            style={styleSheet.createAccountContainer.createAccountBtn}
-          >
-            <Text
-              style={{
-                ...globalStyles.textBold,
-                fontWeight: 600,
-                fontSize: 18,
-              }}
-            >
-              Start scrolling
-            </Text>
-          </TouchableOpacity>
+          <CustomButton buttonText={"Start Scrolling"} />
         </View>
       </View>
-
       <View>
         <Text
           style={{
