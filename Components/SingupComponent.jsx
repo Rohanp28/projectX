@@ -117,7 +117,7 @@ const styleSheet = StyleSheet.create({
       elevation: 10,
       padding: 15,
       borderRadius: 10,
-      backgroundColor: "#FFFF33l",
+      backgroundColor: "#FFFF33",
       color: "black",
     },
   },
