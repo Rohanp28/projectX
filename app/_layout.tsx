@@ -1,24 +1,30 @@
 import React from "react";
 import { Stack } from "expo-router";
-import { KeyboardAvoidingView, SafeAreaView } from "react-native";
+import { KeyboardAvoidingView, SafeAreaView, StatusBar } from "react-native";
 import { StyleSheet } from "react-native";
 
 export default function RootLayout() {
   return (
+    <>
+      <StatusBar backgroundColor="white" />
+      <KeyboardAvoidingView behavior="height" style={{ display: "flex", flex: 1 }}>
+        <SafeAreaView style={styleSheet.container}>
+          <Stack screenOptions={{
+            headerShown: false
+          }}>
 
-    <SafeAreaView style={styleSheet.container}>
-      <Stack screenOptions={{
-        headerShown: false
-      }}>
-        <Stack.Screen name="index" />
-      </Stack>
-    </SafeAreaView>
+            <Stack.Screen name="index" />
+          </Stack >
+        </SafeAreaView >
+      </KeyboardAvoidingView>
+    </>
   )
 }
 
 const styleSheet = StyleSheet.create({
   container: {
-    minHeight: "100%",
-    backgroundColor: "red"
+    display: "flex",
+    marginTop: StatusBar.currentHeight,
+    flex: 1
   }
 })

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Image,
   KeyboardAvoidingView,
@@ -9,9 +9,12 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-} from 'react-native';
-import { useGlobalStyles } from './GlobalStyles/GlobalStyles';
-import Welcome from './components/welcome';
+} from "react-native";
+import { useGlobalStyles } from "./GlobalStyles/GlobalStyles";
+import SignUp from "../Components/SingupComponent";
+import RegionSeprator from "../Components/RegionSepratorComponent";
+import { SocialSign } from "../Components/SocialSignInComponent";
+import { LoginForm } from "../Components/LoginFormComponent";
 
 export default function App() {
   const [globalStyles, loaded] = useGlobalStyles();
@@ -118,89 +121,30 @@ export default function App() {
 
 const styleSheet = StyleSheet.create({
   container: {
-    height: '100%',
+    height: "100%",
     padding: 15,
-    display: 'flex',
-    flexDirection: 'column',
-    backgroundColor: 'black',
-    color: 'white',
-    justifyContent: 'space-evenly',
+    display: "flex",
+    gap: 20,
+    flexDirection: "column",
+    justifyContent: "center",
+    backgroundColor: "black",
+    color: "white",
   },
   topHeaderWrapper: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
   topHeader: {
-    display: 'flex',
-    width: '100%',
-    justifyContent: 'space-between',
+    display: "flex",
+    width: "100%",
+    justifyContent: "space-between",
   },
   greetingSection: {
-    display: 'flex',
-    flexDirection: 'row',
-    width: '100%',
-    justifyContent: 'center',
-  },
-  inputWrapper: {
-    width: '100%',
-    display: 'flex',
-    gap: 10,
-    flexDirection: 'column',
-  },
-  inputContainer: {
-    padding: 10,
-    backgroundColor: '#ffff',
-    width: '100%',
-    borderRadius: 10,
-    color: 'black',
-    marginTop: 5,
-    fontSize: 14,
-  },
-  createAccountContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    paddingLeft: 30,
-    paddingRight: 30,
-    createAccountBtn: {
-      elevation: 10,
-      padding: 15,
-      width: '100%',
-      borderRadius: 14,
-      backgroundColor: '#F5F5F5',
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'center',
-      color: 'black',
-    },
-  },
-  signInContainer: {
-    display: 'flex',
-    gap: 8,
-
-    signInContainerBtn: {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'center',
-      gap: 5,
-      flexDirection: 'row',
-      backgroundColor: 'white',
-      padding: 10,
-      borderRadius: 20,
-      //   elevation: 10,
-    },
-  },
-  signInBtn: {
-    display: 'flex',
-    flexDirection: 'row',
-    gap: 6,
-    minWidth: 200,
-    alignItems: 'center',
-  },
-  socialIcons: {
-    width: 24,
-    height: 24,
+    display: "flex",
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "center",
   },
 });
