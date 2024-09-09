@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 export function useGlobalStyles() {
   const [loaded, error] = useFonts({
     "Montserrat-Regular": require("../../assets/fonts/Montserrat-Regular.ttf"),
+    "Montserrat-bold": require("../../assets/fonts/Montserrat-Bold.ttf"),
     "Oswald-Regular": require("../../assets/fonts/Oswald-Regular.ttf"),
     "Inter_18pt-Regular": require("../../assets/fonts/Inter_18pt-Regular.ttf"),
   });
@@ -14,7 +15,10 @@ export function useGlobalStyles() {
       const styleSheet = StyleSheet.create({
         text: {
           fontFamily: "Montserrat-Regular",
-          fontSize: 18,
+          fontSize: 16,
+        },
+        textBold: {
+          fontFamily: "Montserrat-bold",
         },
       });
 
