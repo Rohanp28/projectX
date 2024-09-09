@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "projectX",
+    "slug": "projectX",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": [
+      "expo-router",["expo-font",{
+        "fonts":["./assets/fonts"]
+      }]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
