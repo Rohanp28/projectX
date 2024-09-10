@@ -4,6 +4,8 @@ import { useGlobalStyles } from '../Components/GlobalStyles/GlobalStyles';
 import SignUp from '../Components/SingupComponent';
 import { LoginForm } from '../Components/LoginFormComponent';
 import Welcome from '../Components/Welcome';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import Bottomsheet from '../Components/Bottomsheet';
 
 export default function App() {
   const [globalStyles, loaded] = useGlobalStyles();
@@ -18,21 +20,24 @@ export default function App() {
     return <Text>loading ..</Text>;
   }
   return (
-    <View style={styleSheet.container}>
-      {/* <View style={styleSheet.container}>{sectionArr[renderSection]}</View> */}
-      <Welcome setPopOverVisible={setPopOverVisible} />
-      <View
-        style={{
-          ...styleSheet.popOver,
-          transform: popOverVisible ? 'scaleY(1)' : 'scaleY(0)',
-        }}
-      >
-        <View style={styleSheet.grabber}></View>
-        <View style={styleSheet.section}>
-          <SignUp />
-        </View>
+    <GestureHandlerRootView>
+      {popOverVisible && <Bottomsheet setPopOverVisible={setPopOverVisible} />}
+      <View style={styleSheet.container}>
+        {/* <View style={styleSheet.container}>{sectionArr[renderSection]}</View> */}
+        <Welcome setPopOverVisible={setPopOverVisible} />
+        {/* <View
+          style={{
+            ...styleSheet.popOver,
+            transform: popOverVisible ? 'scaleY(1)' : 'scaleY(0)',
+          }}
+        >
+          <View style={styleSheet.grabber}></View>
+          <View style={styleSheet.section}>
+            <SignUp />
+          </View>
+        </View> */}
       </View>
-    </View>
+    </GestureHandlerRootView>
   );
 }
 
