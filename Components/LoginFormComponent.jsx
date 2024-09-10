@@ -1,10 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { CustomTextInput } from "./CustomTextInput";
-import { useGlobalStyles } from "../app/GlobalStyles/GlobalStyles";
+import { useGlobalStyles } from "./GlobalStyles/GlobalStyles";
 import { CustomButton } from "./CustomButton/CustomButton";
 
-export const LoginForm = () => {
+export const LoginForm = ({ setRenderSection }) => {
   const [globalStyles, loaded] = useGlobalStyles();
 
   return (
@@ -43,6 +43,13 @@ export const LoginForm = () => {
       <View>
         <CustomButton buttonText={"Continue Scrolling"} />
       </View>
+      <Pressable onPress={() => setRenderSection(0)}>
+        <Text
+          style={{ ...globalStyles.text, color: "white", textAlign: "center" }}
+        >
+          Don't have an Account ?
+        </Text>
+      </Pressable>
     </View>
   );
 };
@@ -50,6 +57,6 @@ export const LoginForm = () => {
 const stylesheet = StyleSheet.create({
   loginContainer: {
     display: "flex",
-    gap: 20,
+    gap: 30,
   },
 });
