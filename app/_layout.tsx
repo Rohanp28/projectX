@@ -2,10 +2,11 @@ import React from "react";
 import { Stack } from "expo-router";
 import { KeyboardAvoidingView, SafeAreaView, StatusBar } from "react-native";
 import { StyleSheet } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function RootLayout() {
   return (
-    <>
+    <GestureHandlerRootView>
       <StatusBar backgroundColor="white" />
       <KeyboardAvoidingView behavior="height" style={{ display: "flex", flex: 1 }}>
         <SafeAreaView style={styleSheet.container}>
@@ -17,7 +18,7 @@ export default function RootLayout() {
           </Stack >
         </SafeAreaView >
       </KeyboardAvoidingView>
-    </>
+    </GestureHandlerRootView>
   )
 }
 

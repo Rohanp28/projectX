@@ -1,16 +1,17 @@
 import React from "react";
 import {
+  Pressable,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
-import { useGlobalStyles } from "../app/GlobalStyles/GlobalStyles";
+import { useGlobalStyles } from "./GlobalStyles/GlobalStyles";
 import { CustomTextInput } from "./CustomTextInput";
 import { CustomButton } from "./CustomButton/CustomButton";
 
-export default function SignUp() {
+export default function SignUp({ setRenderSection }) {
   const [globalStyles, loaded] = useGlobalStyles();
   return (
     <View style={{ display: "flex", gap: 20 }}>
@@ -18,8 +19,6 @@ export default function SignUp() {
         style={{
           display: "flex",
           gap: 10,
-          justifyContent: "between",
-          alignItems: "center",
         }}
       >
         <View>
@@ -47,13 +46,19 @@ export default function SignUp() {
             secureTextEntry={true}
             placeholderTextColor="white"
           />
+          <CustomTextInput
+            placeholder={"Confirm Your Password"}
+            secureTextEntry={true}
+            placeholderTextColor="white"
+          />
         </View>
 
         <View style={styleSheet.createAccountContainer}>
           <CustomButton buttonText={"Start Scrolling"} />
         </View>
       </View>
-      <View>
+
+      <Pressable onPress={() => setRenderSection(2)}>
         <Text
           style={{
             ...globalStyles.text,
@@ -63,7 +68,7 @@ export default function SignUp() {
         >
           Already have an account ?
         </Text>
-      </View>
+      </Pressable>
     </View>
   );
 }
@@ -85,20 +90,7 @@ const styleSheet = StyleSheet.create({
     fontSize: 14,
   },
   createAccountContainer: {
-    display: "flex",
-    flexDirection: "row",
     width: "100%",
     paddingTop: 10,
-    createAccountBtn: {
-      display: "flex",
-      width: "100%",
-      flexDirection: "row",
-      justifyContent: "center",
-      elevation: 10,
-      padding: 15,
-      borderRadius: 10,
-      backgroundColor: "#FFFF33",
-      color: "black",
-    },
   },
 });
