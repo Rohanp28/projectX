@@ -10,6 +10,7 @@ import {
 import { useGlobalStyles } from "./GlobalStyles/GlobalStyles";
 import { CustomTextInput } from "./CustomTextInput";
 import { CustomButton } from "./CustomButton/CustomButton";
+import { SocialSign } from "./SocialSignInComponent";
 
 export default function SignUp({ setRenderSection }) {
   const [globalStyles, loaded] = useGlobalStyles();
@@ -69,6 +70,7 @@ export default function SignUp({ setRenderSection }) {
           Already have an account ?
         </Text>
       </Pressable>
+      <SocialSign />
     </View>
   );
 }
