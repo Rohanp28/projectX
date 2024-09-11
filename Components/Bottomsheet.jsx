@@ -1,17 +1,17 @@
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import React, { useEffect } from 'react';
-import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import { Dimensions, StyleSheet, Text, View } from "react-native";
+import React, { useEffect } from "react";
+import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSpring,
-} from 'react-native-reanimated';
+} from "react-native-reanimated";
 
-const { height: SCREEN_HEIGHT } = Dimensions.get('window');
+const { height: SCREEN_HEIGHT } = Dimensions.get("window");
 const MAX_TRANSLATE_Y = SCREEN_HEIGHT / 1.5;
 const MIN_TRANSLATE_Y = SCREEN_HEIGHT / 5;
 
-export default function Bottomsheet({ setPopOverVisible }) {
+export default function Bottomsheet({ children, setPopOverVisible }) {
   const translateY = useSharedValue(0);
   const context = useSharedValue({ y: 0 });
 
@@ -26,12 +26,13 @@ export default function Bottomsheet({ setPopOverVisible }) {
     .onEnd((e) => {
       if (translateY.value > -MIN_TRANSLATE_Y) {
         translateY.value = withSpring(SCREEN_HEIGHT);
-        console.log('rohan');
+        console.log("rohan");
         setPopOverVisible(false);
       }
       if (translateY.value < -MIN_TRANSLATE_Y) {
         translateY.value = withSpring(-MAX_TRANSLATE_Y);
-        console.log('patare');
+        console.log("patare");
+        setPopOverVisible(false);
       }
     });
 
@@ -49,7 +50,7 @@ export default function Bottomsheet({ setPopOverVisible }) {
    * @param {number} destination - The destination to scroll to
    */
   const scrollTo = (destination) => {
-    'worklet';
+    "worklet";
     translateY.value = withSpring(destination, { damping: 50 });
   };
 
@@ -64,7 +65,8 @@ export default function Bottomsheet({ setPopOverVisible }) {
         style={[styles.bottomsheet_container, reanimatedBottomStyle]}
       >
         <View style={styles.line} />
-        <Text>Bottomsheet</Text>
+
+        {children}
       </Animated.View>
     </GestureDetector>
   );
@@ -72,23 +74,23 @@ export default function Bottomsheet({ setPopOverVisible }) {
 
 const styles = StyleSheet.create({
   bottomsheet_container: {
-    width: '100%',
+    width: "100%",
     height: SCREEN_HEIGHT,
-    backgroundColor: '#00f8',
-    position: 'absolute',
+    backgroundColor: "#393939",
+    position: "absolute",
     top: SCREEN_HEIGHT / 1.5,
     zIndex: 12000,
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
   },
   line: {
-    width: 75,
+    width: "50%",
     height: 4,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
-    alignSelf: 'center',
+    alignSelf: "center",
     marginVertical: 10,
   },
 });

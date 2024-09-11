@@ -1,11 +1,18 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Animated, StyleSheet, Text, View } from 'react-native';
-import { useGlobalStyles } from '../Components/GlobalStyles/GlobalStyles';
-import SignUp from '../Components/SingupComponent';
-import { LoginForm } from '../Components/LoginFormComponent';
-import Welcome from '../Components/Welcome';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import Bottomsheet from '../Components/Bottomsheet';
+import React, { useEffect, useRef, useState } from "react";
+import {
+  Animated,
+  KeyboardAvoidingView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import { useGlobalStyles } from "../Components/GlobalStyles/GlobalStyles";
+import SignUp from "../Components/SingupComponent";
+import { LoginForm } from "../Components/LoginFormComponent";
+import Welcome from "../Components/Welcome";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import Bottomsheet from "../Components/Bottomsheet";
+import { CustomBottomModal } from "../Components/CustomBottomModal";
 
 export default function App() {
   const [globalStyles, loaded] = useGlobalStyles();
@@ -21,11 +28,16 @@ export default function App() {
   }
   return (
     <GestureHandlerRootView>
-      {popOverVisible && <Bottomsheet setPopOverVisible={setPopOverVisible} />}
-      <View style={styleSheet.container}>
-        {/* <View style={styleSheet.container}>{sectionArr[renderSection]}</View> */}
-        <Welcome setPopOverVisible={setPopOverVisible} />
-        {/* <View
+      <KeyboardAvoidingView>
+        {popOverVisible && (
+          <CustomBottomModal>
+            <SignUp />
+          </CustomBottomModal>
+        )}
+        <View style={styleSheet.container}>
+          {/* <View style={styleSheet.container}>{sectionArr[renderSection]}</View> */}
+          <Welcome setPopOverVisible={setPopOverVisible} />
+          {/* <View
           style={{
             ...styleSheet.popOver,
             transform: popOverVisible ? 'scaleY(1)' : 'scaleY(0)',
@@ -36,47 +48,48 @@ export default function App() {
             <SignUp />
           </View>
         </View> */}
-      </View>
+        </View>
+      </KeyboardAvoidingView>
     </GestureHandlerRootView>
   );
 }
 
 const styleSheet = StyleSheet.create({
   container: {
-    height: '100%',
-    display: 'flex',
+    display: "flex",
+    flex: 1,
     gap: 20,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    backgroundColor: 'black',
-    position: 'relative',
+    flexDirection: "column",
+    justifyContent: "center",
+    backgroundColor: "black",
+    position: "relative",
   },
   popOver: {
-    position: 'absolute',
+    position: "absolute",
     left: 0,
     right: 0,
     bottom: 0,
-    top: '2%',
-    backgroundColor: '#393939F7',
+    top: "2%",
+    backgroundColor: "#393939F7",
     borderTopLeftRadius: 50,
     borderTopRightRadius: 50,
-    display: 'flex',
-    width: '100%',
+    display: "flex",
+    width: "100%",
     flex: 1,
     padding: 30,
-    alignItems: 'center',
+    alignItems: "center",
   },
   grabber: {
-    backgroundColor: 'gray',
-    width: '80%',
+    backgroundColor: "gray",
+    width: "80%",
     height: 8,
     borderRadius: 10,
     marginTop: 10,
   },
   section: {
-    width: '100%',
-    height: '100%',
-    display: 'flex',
-    justifyContent: 'center',
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    justifyContent: "center",
   },
 });
