@@ -4,9 +4,10 @@ import {
   StyleSheet,
   TouchableOpacity,
   Animated,
-} from "react-native";
-import { useGlobalStyles } from "./GlobalStyles/GlobalStyles";
-import { CustomButton } from "./CustomButton/CustomButton";
+} from 'react-native';
+import { useGlobalStyles } from './GlobalStyles/GlobalStyles';
+import { CustomButton } from './CustomButton/CustomButton';
+import { router, useRouter } from 'expo-router';
 
 const Welcome = ({ setRenderSection, setPopOverVisible }) => {
   const [globalStyles, loaded] = useGlobalStyles();
@@ -17,14 +18,14 @@ const Welcome = ({ setRenderSection, setPopOverVisible }) => {
     <View style={styleSheet.container}>
       <View style={styleSheet.revenueContainer}>
         <Text
-          style={{ ...globalStyles.textBold, color: "white", fontSize: 36 }}
+          style={{ ...globalStyles.textBold, color: 'white', fontSize: 36 }}
         >
           ₹9,999.00 /-
         </Text>
         <Text
           style={{
             ...globalStyles.text,
-            color: "white",
+            color: 'white',
             fontSize: 18,
           }}
         >
@@ -34,12 +35,13 @@ const Welcome = ({ setRenderSection, setPopOverVisible }) => {
       <View style={styleSheet.greetingContainer}>
         <View style={styleSheet.createAccountContainer}>
           <CustomButton
-            buttonText={"Get Started"}
-            onPress={() => setPopOverVisible(true)}
+            buttonText={'Get Started'}
+            // onPress={() => setPopOverVisible(true)}
+            onPress={() => router.push('/(tabs)')}
           />
           <CustomButton
             secondary
-            buttonText={"have an account ?"}
+            buttonText={'have an account ?'}
             onPress={() => setPopOverVisible(true)}
           />
         </View>
@@ -50,32 +52,32 @@ const Welcome = ({ setRenderSection, setPopOverVisible }) => {
 
 const styleSheet = StyleSheet.create({
   revenueContainer: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
     gap: 5,
     padding: 10,
     borderRadius: 10,
   },
   container: {
-    height: "100%",
+    height: '100%',
     padding: 15,
-    display: "flex",
-    flexDirection: "column",
-    color: "white",
-    backgroundColor: "black",
+    display: 'flex',
+    flexDirection: 'column',
+    color: 'white',
+    backgroundColor: 'black',
     // justifyContent: 'flex-end',
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   greetingContainer: {
-    width: "100%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     gap: 20,
     marginBottom: 20,
     marginTop: 20,
@@ -83,21 +85,21 @@ const styleSheet = StyleSheet.create({
   },
 
   createAccountContainer: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
     marginTop: 5,
     gap: 20,
 
     createAccountBtn: {
       padding: 15,
-      width: "100%",
+      width: '100%',
       borderRadius: 10,
-      backgroundColor: "#F5F5F5",
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "center",
-      color: "black",
+      backgroundColor: '#F5F5F5',
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      color: 'black',
     },
   },
 });
