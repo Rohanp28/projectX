@@ -28,16 +28,15 @@ export default function App() {
   }
   return (
     <GestureHandlerRootView>
-      <KeyboardAvoidingView>
-        {popOverVisible && (
-          <CustomBottomModal>
-            <SignUp />
-          </CustomBottomModal>
-        )}
-        <View style={styleSheet.container}>
-          {/* <View style={styleSheet.container}>{sectionArr[renderSection]}</View> */}
-          <Welcome setPopOverVisible={setPopOverVisible} />
-          {/* <View
+      {popOverVisible && (
+        <CustomBottomModal setPopOverVisible={setPopOverVisible}>
+          <SignUp />
+        </CustomBottomModal>
+      )}
+      <View style={styleSheet.container}>
+        {/* <View style={styleSheet.container}>{sectionArr[renderSection]}</View> */}
+        <Welcome setPopOverVisible={setPopOverVisible} />
+        {/* <View
           style={{
             ...styleSheet.popOver,
             transform: popOverVisible ? 'scaleY(1)' : 'scaleY(0)',
@@ -48,8 +47,7 @@ export default function App() {
             <SignUp />
           </View>
         </View> */}
-        </View>
-      </KeyboardAvoidingView>
+      </View>
     </GestureHandlerRootView>
   );
 }
