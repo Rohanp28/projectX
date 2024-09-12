@@ -1,8 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Header } from '../../../Components/Header/Header'
-import { Stories } from '../../../Components/StoriesSection/StoriesSection'
-
+import { Header } from '../../../Components/Header/Header';
+import { Stories } from '../../../Components/StoriesSection/StoriesSection';
 
 const Home = () => {
   return (
@@ -21,11 +20,10 @@ const Home = () => {
 
 const styleSheet = StyleSheet.create({
   container: {
-    display: "flex",
+    display: 'flex',
     flex: 1,
-    backgroundColor: "black"
-  }
-})
+    backgroundColor: 'black',
+  },
+});
 
 export default Home;
-

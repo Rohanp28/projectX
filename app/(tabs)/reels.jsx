@@ -64,20 +64,36 @@ const Reels = () => {
     return (
       <View style={styles.postContainer}>
         <View style={styles.postHeader}>
-          <Text
+          <View
             style={{
-              ...globalStyles.textBold,
-              fontSize: 23,
               display: 'flex',
-              width: '100%',
-              justifyContent: 'space-between',
-              color: 'white',
-              paddingTop: 5,
-              paddingBottom: 5,
+              flexDirection: 'row',
+              gap: 10,
+              alignItems: 'center',
             }}
           >
-            {item.accountProfileLogo} {item.accountUsername}
-          </Text>
+            <Image
+              source={require('../../assets/Image/testImage.jpg')}
+              style={{
+                width: 50,
+                height: 50,
+                borderRadius: 100,
+              }}
+            />
+            <Text
+              style={{
+                ...globalStyles.textBold,
+                fontSize: 23,
+                display: 'flex',
+                justifyContent: 'space-between',
+                color: 'white',
+                paddingTop: 5,
+                paddingBottom: 5,
+              }}
+            >
+              {item.accountProfileLogo} {item.accountUsername}
+            </Text>
+          </View>
           <SimpleLineIcons name="options-vertical" size={18} color="white" />
         </View>
         <View style={styles.postImage}>
@@ -162,7 +178,10 @@ const Reels = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    display: 'flex',
+    height: '100%',
+    width: '100%',
+    flexDirection: 'column',
     backgroundColor: 'black',
   },
   postContainer: {
@@ -180,7 +199,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingRight: 20,
+    width: '100%',
   },
   postImage: {
     marginTop: 5,
