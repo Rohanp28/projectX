@@ -1,12 +1,31 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { Header } from '../../../Components/Header/Header'
+import { Stories } from '../../../Components/StoriesSection/StoriesSection'
+
 
 const Home = () => {
   return (
-    <View>
-      <Text>Home Page</Text>
+    <View style={styleSheet.container}>
+      {/* header */}
+      <Header />
+      {/* stories */}
+      <Stories />
+
+      {/* flatlist */}
+      {/* feed */}
+      {/* flatlist */}
     </View>
   );
 };
 
+const styleSheet = StyleSheet.create({
+  container: {
+    display: "flex",
+    flex: 1,
+    backgroundColor: "black"
+  }
+})
+
 export default Home;
+
