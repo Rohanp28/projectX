@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Header } from '../../../Components/Header/Header'
-import { Stories } from '../../../Components/StoriesSection/StoriesSection'
+import { Header } from '../../../Components/Header/Header';
+import { Stories } from '../../../Components/StoriesSection/StoriesSection';
+import { Feed } from '../../../Components/Feed/Feed'
+
 
 
 const Home = () => {
@@ -13,7 +15,7 @@ const Home = () => {
       <Stories />
 
       {/* flatlist */}
-      {/* feed */}
+      <Feed />
       {/* flatlist */}
     </View>
   );
