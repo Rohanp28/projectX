@@ -9,13 +9,13 @@ import {
 } from "react-native";
 const { height: SCREEN_HEIGHT } = Dimensions.get("window");
 
-export const CustomBottomModal = ({ children }) => {
+export const CustomBottomModal = ({ children, setPopOverVisible }) => {
   const top = useRef(new Animated.Value(SCREEN_HEIGHT)).current; // Initialize with SCREEN_HEIGHT to start off-screen
 
   useEffect(() => {
     Animated.timing(top, {
       toValue: 30,
-      duration: 500,
+      duration: 250,
       useNativeDriver: true,
     }).start();
   }, [top]);
@@ -25,6 +25,18 @@ export const CustomBottomModal = ({ children }) => {
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: () => true,
       onPanResponderMove: (e, gestureState) => {
+        if (gestureState.dy >= SCREEN_HEIGHT / 1.5) {
+          Animated.timing(top, {
+            toValue: SCREEN_HEIGHT,
+            duration: 350,
+            useNativeDriver: true,
+          }).start(() => {
+            setTimeout(() => {
+              setPopOverVisible(false);
+            }, 200);
+          });
+          return;
+        }
         top.setValue(Math.max(gestureState.dy, 10)); // Ensure the value is non-negative
       },
     })
