@@ -23,11 +23,10 @@ const Home = () => {
 
 const styleSheet = StyleSheet.create({
   container: {
-    display: "flex",
+    display: 'flex',
     flex: 1,
-    backgroundColor: "black"
-  }
-})
+    backgroundColor: 'black',
+  },
+});
 
 export default Home;
-
