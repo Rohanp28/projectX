@@ -14,7 +14,7 @@ export const CustomBottomModal = ({ children, setPopOverVisible }) => {
 
   useEffect(() => {
     Animated.timing(top, {
-      toValue: 30,
+      toValue: 0,
       duration: 250,
       useNativeDriver: true,
     }).start();
@@ -25,15 +25,15 @@ export const CustomBottomModal = ({ children, setPopOverVisible }) => {
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: () => true,
       onPanResponderMove: (e, gestureState) => {
-        if (gestureState.dy >= SCREEN_HEIGHT / 1.5) {
+        if (gestureState.dy >= 5) {
           Animated.timing(top, {
             toValue: SCREEN_HEIGHT,
-            duration: 350,
+            duration: 500,
             useNativeDriver: true,
           }).start(() => {
             setTimeout(() => {
               setPopOverVisible(false);
-            }, 200);
+            }, 500);
           });
           return;
         }
