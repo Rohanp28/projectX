@@ -13,6 +13,7 @@ import Welcome from "../Components/Welcome";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Bottomsheet from "../Components/Bottomsheet";
 import { CustomBottomModal } from "../Components/CustomBottomModal";
+import { StatusBar } from "react-native";
 
 export default function App() {
   const [globalStyles, loaded] = useGlobalStyles();
@@ -33,6 +34,7 @@ export default function App() {
           <SignUp />
         </CustomBottomModal>
       )}
+      <StatusBar backgroundColor="black" />
       <View style={styleSheet.container}>
         {/* <View style={styleSheet.container}>{sectionArr[renderSection]}</View> */}
         <Welcome setPopOverVisible={setPopOverVisible} />

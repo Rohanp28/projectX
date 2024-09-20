@@ -10,10 +10,6 @@ const Home = () => {
   return (
     <View style={styleSheet.container}>
       {/* header */}
-      <Header />
-      {/* stories */}
-      <Stories />
-
       {/* flatlist */}
       <Feed />
       {/* flatlist */}

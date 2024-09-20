@@ -1,3 +1,4 @@
+import { Colors } from "@/constants/Colors";
 import React from "react";
 import {
   View,
@@ -71,7 +72,7 @@ const styleSheet = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
 
-    backgroundColor: "#000000",
+    backgroundColor: Colors.backgroundColor,
     height: 110,
   },
   currentUserContainer: {
