@@ -24,9 +24,16 @@
       "output": "static"
     },
     "plugins": [
-      "expo-router",["expo-font",{
-        "fonts":["./assets/fonts"]
-      }]
+      "expo-router",
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts"
+          ]
+        }
+      ],
+      "expo-video"
     ],
     "experiments": {
       "typedRoutes": true
