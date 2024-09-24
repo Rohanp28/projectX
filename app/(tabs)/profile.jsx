@@ -12,7 +12,6 @@ import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons';
 import { useGlobalStyles } from '@/Components/GlobalStyles/GlobalStyles';
 import { Colors } from '@/constants/Colors';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import { SearchTiles } from '@/Components/SearchTiles/SearchTiles';
 
 let { width, height } = Dimensions.get('window');
 const Profile = () => {
