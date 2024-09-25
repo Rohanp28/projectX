@@ -9,6 +9,7 @@ const Search = () => {
   const scrollViewRef = useRef(null);
 
   const [scrollPosY, setScrollPosY] = useState(0);
+  const [height, setHeight] = useState(0);
 
   const handleScroll = (e) => {
     // e.persist();
@@ -21,6 +22,7 @@ const Search = () => {
     //     setIsViewVisible(isVisible);
     //   })
     // }
+    console.log(height);
     setScrollPosY(e.nativeEvent.contentOffset.y);
   };
   return (
@@ -38,6 +40,11 @@ const Search = () => {
         onScroll={handleScroll}
         ref={scrollViewRef}
         style={{ paddingTop: 12 }}
+        onLayout={(event) => {
+          const { height } = event.nativeEvent.layout;
+          setHeight(height);
+          console.log("ScrollView height =>", height);
+        }}
       >
         <View
           style={{
@@ -53,6 +60,7 @@ const Search = () => {
               scrollPos={scrollPosY}
               scrollViewRef={scrollViewRef}
               index={0}
+              scrollHeight={height}
             />
           </View>
 
@@ -108,7 +116,8 @@ const Search = () => {
               autoPlay={true}
               scrollPos={scrollPosY}
               scrollViewRef={scrollViewRef}
-              index={0}
+              index={1}
+              scrollHeight={height}
             />
           </View>
 
@@ -165,7 +174,8 @@ const Search = () => {
               autoPlay={true}
               scrollPos={scrollPosY}
               scrollViewRef={scrollViewRef}
-              index={0}
+              index={2}
+              scrollHeight={height}
             />
           </View>
 
