@@ -23,12 +23,7 @@ export const VideoTilesMed = ({
           // Check if the view is visible within the current scroll window
           const isVisible =
             viewBottom > scrollPos && viewTop < scrollPos + scrollHeight;
-
-          console.log("is visible? =>", isVisible);
           setIsViewVisible(isVisible);
-        },
-        (error) => {
-          console.error("Measurement error:", error);
         }
       );
     }

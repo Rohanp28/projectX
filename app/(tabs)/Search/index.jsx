@@ -1,9 +1,11 @@
 import { Colors } from "@/constants/Colors";
 import React, { useRef, useState } from "react";
-import { Image, StyleSheet, TextInput, View } from "react-native";
+import { Image, StyleSheet, TextInput, Touchable, View } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { ScrollView } from "react-native-gesture-handler";
-import { VideoTilesMed } from "../../Components/VideoTiles/VideoTilesMed";
+import { VideoTilesMed } from "../../../Components/VideoTiles/VideoTilesMed";
+import { router } from "expo-router";
+import { TouchableOpacity } from "react-native";
 
 const Search = () => {
   const scrollViewRef = useRef(null);
@@ -12,29 +14,23 @@ const Search = () => {
   const [height, setHeight] = useState(0);
 
   const handleScroll = (e) => {
-    // e.persist();
-    // if (viewRef.current) {
-    //   viewRef.current.measureLayout(scrollViewRef.current, (x, y, width, height) => {
-    //     const scrollY = e.nativeEvent.contentOffset.y;
-    //     const viewBottom = y + height / 2;
-    //     const isVisible = viewBottom > scrollY;
-    //     console.log(viewBottom);
-    //     setIsViewVisible(isVisible);
-    //   })
-    // }
-    console.log(height);
     setScrollPosY(e.nativeEvent.contentOffset.y);
   };
   return (
     <View style={styleSheet.container}>
-      <View style={styleSheet.searchBarContainer}>
+      <TouchableOpacity
+        style={styleSheet.searchBarContainer}
+        onPress={() => {
+          router.push("/Search/SearchDetailsPage");
+        }}
+      >
         <FontAwesome size={18} name="search" color={"white"} />
         <TextInput
           style={{ color: "white", width: "90%" }}
           placeholderTextColor={"#909090"}
           placeholder="Search"
         />
-      </View>
+      </TouchableOpacity>
 
       <ScrollView
         onScroll={handleScroll}
@@ -80,7 +76,7 @@ const Search = () => {
               }}
             >
               <Image
-                source={require("../../assets/Image/test2.png")}
+                source={require("../../../assets/Image/test2.png")}
                 style={{
                   width: "100%",
                   height: "100%",
@@ -95,7 +91,7 @@ const Search = () => {
               }}
             >
               <Image
-                source={require("../../assets/Image/test3.jpg")}
+                source={require("../../../assets/Image/test3.jpg")}
                 style={{ width: "100%", height: "100%" }}
                 resizeMode="cover"
               />
@@ -139,7 +135,7 @@ const Search = () => {
               }}
             >
               <Image
-                source={require("../../assets/Image/test2.png")}
+                source={require("../../../assets/Image/test2.png")}
                 style={{
                   width: "100%",
                   height: "100%",
@@ -154,7 +150,7 @@ const Search = () => {
               }}
             >
               <Image
-                source={require("../../assets/Image/test3.jpg")}
+                source={require("../../../assets/Image/test3.jpg")}
                 style={{ width: "100%", height: "100%" }}
                 resizeMode="cover"
               />
@@ -197,7 +193,7 @@ const Search = () => {
               }}
             >
               <Image
-                source={require("../../assets/Image/test2.png")}
+                source={require("../../../assets/Image/test2.png")}
                 style={{
                   width: "100%",
                   height: "100%",
@@ -212,7 +208,7 @@ const Search = () => {
               }}
             >
               <Image
-                source={require("../../assets/Image/test3.jpg")}
+                source={require("../../../assets/Image/test3.jpg")}
                 style={{ width: "100%", height: "100%" }}
                 resizeMode="cover"
               />
