@@ -12,7 +12,6 @@
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
     "app/(tabs)/reels.jsx",
-    "app/(tabs)/search.jsx",
-    "app/(tabs)/profile.jsx"
-, "app/(tabs)/(profile)/_layout.jsx"  ]
+    "app/(tabs)/Search/search.jsx"
+  ]
 }

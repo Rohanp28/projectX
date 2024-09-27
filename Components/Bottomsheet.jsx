@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   bottomsheet_container: {
     width: "100%",
     height: SCREEN_HEIGHT,
-    backgroundColor: "#393939",
+    backgroundColor: "black",
     position: "absolute",
     top: SCREEN_HEIGHT / 1.5,
     zIndex: 12000,

@@ -10,11 +10,8 @@ export default function TabLayout() {
       <StatusBar backgroundColor={Colors.backgroundColor} />
       <Tabs
         screenOptions={{
-          tabBarActiveTintColor: '#FFFF33',
-          tabBarStyle: {
-            backgroundColor: Colors.backgroundColor,
-            borderTopWidth: 0,
-          },
+          tabBarActiveTintColor: 'white',
+          tabBarStyle: { backgroundColor: Colors.backgroundColor, borderTopWidth: 0 },
           tabBarShowLabel: false,
           headerShown: false,
         }}
@@ -28,7 +25,7 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name="search"
+          name="Search"
           options={{
             tabBarIcon: ({ color }) => (
               <FontAwesome size={25} name="search" color={color} />
