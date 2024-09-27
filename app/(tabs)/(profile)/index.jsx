@@ -12,16 +12,17 @@ import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons';
 import { useGlobalStyles } from '@/Components/GlobalStyles/GlobalStyles';
 import { Colors } from '@/constants/Colors';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 let { width, height } = Dimensions.get('window');
 const Profile = () => {
   const [globalStyles, loaded] = useGlobalStyles();
 
   const images = [
-    require('../../assets/Image/testImage.jpg'),
-    require('../../assets/Image/testImage.jpg'),
-    require('../../assets/Image/testImage.jpg'),
-    require('../../assets/Image/testImage.jpg'),
+    require('../../../assets/Image/testImage.jpg'),
+    require('../../../assets/Image/testImage.jpg'),
+    require('../../../assets/Image/testImage.jpg'),
+    require('../../../assets/Image/testImage.jpg'),
   ];
 
   renderSection = () => {
@@ -62,7 +63,7 @@ const Profile = () => {
 
       <View style={styles.profileInfo}>
         <Image
-          source={require('../../assets/Image/testImage.jpg')}
+          source={require('../../../assets/Image/testImage.jpg')}
           style={styles.profileImage}
         />
 
@@ -151,6 +152,42 @@ const Profile = () => {
         </Text>
       </View>
 
+      <View style={styles.profileactionbutton}>
+        <View>
+          <Text
+            style={{
+              ...globalStyles.textBold,
+              fontSize: 14,
+              color: 'white',
+              backgroundColor: '#69696980',
+              width: 170,
+              padding: 10,
+              borderRadius: 5,
+            }}
+          >
+            Edit profile
+          </Text>
+        </View>
+        <View>
+          <Text
+            style={{
+              ...globalStyles.textBold,
+              fontSize: 14,
+              color: 'white',
+              backgroundColor: '#69696980',
+              width: 170,
+              padding: 10,
+              borderRadius: 5,
+            }}
+          >
+            Share profile
+          </Text>
+        </View>
+        <View style={styles.adduser}>
+          <Ionicons name="person-add-sharp" size={20} color="white" />
+        </View>
+      </View>
+
       <View>
         <View style={styles.actionButton}>
           <Button title="Learn More">1</Button>
@@ -219,6 +256,14 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     resizeMode: 'cover',
+  },
+  profileactionbutton: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 10,
+    gap: 10,
+    padding: 10,
   },
 });
 

@@ -11,7 +11,10 @@ export default function TabLayout() {
       <Tabs
         screenOptions={{
           tabBarActiveTintColor: '#FFFF33',
-          tabBarStyle: { backgroundColor: Colors.backgroundColor, borderTopWidth: 0 },
+          tabBarStyle: {
+            backgroundColor: Colors.backgroundColor,
+            borderTopWidth: 0,
+          },
           tabBarShowLabel: false,
           headerShown: false,
         }}
@@ -33,12 +36,13 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name='Post'
+          name="Post"
           options={{
             tabBarIcon: ({ color }) => (
               <Ionicons name="add-circle-outline" size={28} color={color} />
             ),
-          }} />
+          }}
+        />
 
         <Tabs.Screen
           name="reels"
@@ -49,7 +53,7 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name="profile"
+          name="(profile)"
           options={{
             tabBarIcon: ({ color }) => (
               <FontAwesome size={25} name="user" color={color} />
