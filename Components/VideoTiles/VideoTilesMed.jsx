@@ -7,6 +7,7 @@ export const VideoTilesMed = ({
   scrollViewRef, // Reference to the ScrollView
   index, // Index of the current component
   scrollHeight, // Height of the visible scroll area
+  source,
 }) => {
   const [isViewVisible, setIsViewVisible] = useState(false); // Default is not visible
   const viewRef = useRef(null); // Ref for the view
@@ -40,7 +41,7 @@ export const VideoTilesMed = ({
         ref={viewRef} // Reference for the view
       >
         <Video
-          source={require("../../assets/videos/test1.mp4")}
+          source={source}
           style={{ width: "100%", height: "100%" }}
           isLooping
           resizeMode="cover"

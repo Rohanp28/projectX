@@ -1,5 +1,12 @@
 import React from "react";
-import { View, StyleSheet, Text, TextInput, ScrollView } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  TextInput,
+  ScrollView,
+  Image,
+} from "react-native";
 import { useGlobalStyles } from "../../../../Components/GlobalStyles/GlobalStyles";
 import { FontAwesome } from "@expo/vector-icons";
 import Feather from "@expo/vector-icons/Feather";
@@ -38,14 +45,14 @@ export default function SearchDetailsPage() {
                       display: "flex",
                       flexDirection: "row",
                       alignItems: "center",
+                      justifyContent: "center",
                       gap: 10,
-                      minWidth: 100,
                       backgroundColor: "#69696980",
-                      padding: 10,
+                      padding: 8,
                       borderRadius: 4,
                     }}
                   >
-                    <Feather name="trending-up" size={18} color="white" />
+                    <Feather name="trending-up" size={16} color="white" />
                     <Text
                       style={{
                         ...globalStyles.text,
@@ -53,7 +60,7 @@ export default function SearchDetailsPage() {
                         textAlign: "center",
                       }}
                     >
-                      Test
+                      test
                     </Text>
                   </View>
                 </View>
@@ -64,72 +71,76 @@ export default function SearchDetailsPage() {
       </View>
 
       {/* recent searches */}
-      <View style={{ display: "flex" }}>
-        <View>
-          <ScrollView style={{ paddingLeft: 15 }} horizontal={false}>
-            <View
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                width: "100%",
-                justifyContent: "space-between",
-                paddingBottom: 15,
-              }}
-            >
-              <View>
-                <Text style={{ ...globalStyles.text, color: "yellow" }}>
-                  Recents
-                </Text>
-              </View>
-              <View>
-                <Text style={{ ...globalStyles.text, color: "yellow" }}>
-                  See All
-                </Text>
-              </View>
+      <View style={{ flex: 1 }}>
+        <ScrollView>
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              width: "100%",
+              justifyContent: "space-between",
+              padding: 15,
+            }}
+          >
+            <View>
+              <Text style={{ ...globalStyles.text, color: "white" }}>
+                Recents
+              </Text>
             </View>
-            <View style={{ display: "flex", gap: 5 }}>
-              {[
-                1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-              ].map((id) => {
-                return (
-                  <View
-                    key={id}
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      alignItems: "center",
-                      padding: 10,
-                      gap: 10,
-                    }}
-                  >
-                    <View
-                      style={{
-                        backgroundColor: "red",
-                        borderRadius: 100,
-                        width: 60,
-                        height: 60,
-                      }}
-                    ></View>
-                    <View style={{ display: "flex", gap: 2 }}>
-                      <Text style={{ ...globalStyles.text, color: "white" }}>
-                        PumaIndia
-                      </Text>
-                      <Text style={{ ...globalStyles.text, color: "white" }}>
-                        Puma India
-                      </Text>
-                      <Text style={{ ...globalStyles.text, color: "white" }}>
-                        1.3 M Followers
-                      </Text>
-                    </View>
-                    <View style={{ marginLeft: "auto", paddingRight: 2 }}>
-                      X
-                    </View>
-                  </View>
-                );
-              })}
+            <View>
+              <Text style={{ ...globalStyles.text, color: "white" }}>
+                See All
+              </Text>
             </View>
-          </ScrollView>
-        </View>
+          </View>
+          {[
+            1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+          ].map((id) => {
+            return (
+              <View
+                key={id}
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  padding: 10,
+                  gap: 10,
+                }}
+              >
+                <View
+                  style={{
+                    backgroundColor: "red",
+                    borderRadius: 100,
+                    width: 60,
+                    height: 60,
+                    overflow: "hidden",
+                  }}
+                >
+                  <Image
+                    source={require("../../../../assets/Image/test4.jpg")}
+                    style={{ width: "100%", height: "100%" }}
+                  />
+                </View>
+                <View style={{ display: "flex", gap: 2 }}>
+                  <Text style={{ ...globalStyles.text, color: "white" }}>
+                    PumaIndia
+                  </Text>
+                  <Text style={{ ...globalStyles.text, color: "white" }}>
+                    Puma India
+                  </Text>
+                  <Text style={{ ...globalStyles.text, color: "white" }}>
+                    1.3 M Followers
+                  </Text>
+                </View>
+                <View style={{ marginLeft: "auto", paddingRight: 2 }}>
+                  <Text style={{ ...globalStyles.text, color: "white" }}>
+                    X {id}
+                  </Text>
+                </View>
+              </View>
+            );
+          })}
+        </ScrollView>
       </View>
     </View>
   );
@@ -142,7 +153,7 @@ const styleSheet = StyleSheet.create({
     height: "100%",
     backgroundColor: "black",
     color: "white",
-    gap: 10,
+    gap: 15,
   },
   searchBarContainer: {
     width: "100%",
@@ -156,7 +167,5 @@ const styleSheet = StyleSheet.create({
     marginTop: 5,
     borderRadius: 10,
     paddingLeft: 15,
-    borderColor: "yellow",
-    borderWidth: 1,
   },
 });

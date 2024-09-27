@@ -1,14 +1,23 @@
 import { Colors } from "@/constants/Colors";
 import React, { useRef, useState } from "react";
-import { Image, StyleSheet, TextInput, Touchable, View } from "react-native";
+import {
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  Touchable,
+  View,
+} from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { ScrollView } from "react-native-gesture-handler";
 import { VideoTilesMed } from "../../../Components/VideoTiles/VideoTilesMed";
 import { router } from "expo-router";
-import { TouchableOpacity } from "react-native";
+import { useGlobalStyles } from "../../../Components/GlobalStyles/GlobalStyles";
 
 const Search = () => {
   const scrollViewRef = useRef(null);
+  const [globalStyles, loaded] = useGlobalStyles();
 
   const [scrollPosY, setScrollPosY] = useState(0);
   const [height, setHeight] = useState(0);
@@ -18,24 +27,20 @@ const Search = () => {
   };
   return (
     <View style={styleSheet.container}>
-      <TouchableOpacity
+      <Pressable
         style={styleSheet.searchBarContainer}
         onPress={() => {
           router.push("/Search/SearchDetailsPage");
         }}
       >
         <FontAwesome size={18} name="search" color={"white"} />
-        <TextInput
-          style={{ color: "white", width: "90%" }}
-          placeholderTextColor={"#909090"}
-          placeholder="Search"
-        />
-      </TouchableOpacity>
+        <Text style={{ ...globalStyles.text, color: "white" }}>Search</Text>
+      </Pressable>
 
       <ScrollView
         onScroll={handleScroll}
         ref={scrollViewRef}
-        style={{ paddingTop: 12 }}
+        style={{ marginTop: 12 }}
         onLayout={(event) => {
           const { height } = event.nativeEvent.layout;
           setHeight(height);
@@ -57,6 +62,7 @@ const Search = () => {
               scrollViewRef={scrollViewRef}
               index={0}
               scrollHeight={height}
+              source={require("../../../assets/videos/testVideo2.mp4")}
             />
           </View>
 
@@ -114,6 +120,7 @@ const Search = () => {
               scrollViewRef={scrollViewRef}
               index={1}
               scrollHeight={height}
+              source={require("../../../assets/videos/testVideo1.mp4")}
             />
           </View>
 
@@ -157,6 +164,7 @@ const Search = () => {
             </View>
           </View>
         </View>
+
         <View
           style={{
             display: "flex",
@@ -238,9 +246,8 @@ const styleSheet = StyleSheet.create({
     flexDirection: "row",
     gap: 10,
     alignItems: "center",
-    padding: 5,
     borderRadius: 10,
-    paddingLeft: 15,
+    padding: 10,
   },
   searchTilesContainer: {
     width: "50%",
