@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Dimensions,
   View,
   Text,
   StyleSheet,
   Image,
-  Button,
+  TouchableOpacity,
   FlatList,
 } from 'react-native';
 import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons';
@@ -15,8 +15,10 @@ import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 let { width, height } = Dimensions.get('window');
+
 const Profile = () => {
   const [globalStyles, loaded] = useGlobalStyles();
+  const [activeButtonIndex, setActiveButtonIndex] = useState(0);
 
   const images = [
     require('../../../assets/Image/testImage.jpg'),
@@ -25,7 +27,7 @@ const Profile = () => {
     require('../../../assets/Image/testImage.jpg'),
   ];
 
-  renderSection = () => {
+  const renderSection = () => {
     return (
       <View style={styles.posts}>
         <FlatList
@@ -153,7 +155,7 @@ const Profile = () => {
       </View>
 
       <View style={styles.profileactionbutton}>
-        <View>
+        <TouchableOpacity>
           <Text
             style={{
               ...globalStyles.textBold,
@@ -163,12 +165,13 @@ const Profile = () => {
               width: 170,
               padding: 10,
               borderRadius: 5,
+              textAlign: 'center',
             }}
           >
             Edit profile
           </Text>
-        </View>
-        <View>
+        </TouchableOpacity>
+        <TouchableOpacity>
           <Text
             style={{
               ...globalStyles.textBold,
@@ -178,25 +181,65 @@ const Profile = () => {
               width: 170,
               padding: 10,
               borderRadius: 5,
+              textAlign: 'center',
             }}
           >
             Share profile
           </Text>
-        </View>
+        </TouchableOpacity>
         <View style={styles.adduser}>
           <Ionicons name="person-add-sharp" size={20} color="white" />
         </View>
       </View>
 
-      <View>
-        <View style={styles.actionButton}>
-          <Button title="Learn More">1</Button>
-          <Button title="Learn More">1</Button>
-          <Button title="Learn More">1</Button>
-          <Button title="Learn More">1</Button>
-        </View>
+      <View style={styles.actionButton}>
+        <TouchableOpacity
+          onPress={() => setActiveButtonIndex(0)}
+          style={[
+            styles.buttonStyle,
+            activeButtonIndex === 0 ? styles.activeButton : null,
+          ]}
+        >
+          <Text style={{ color: activeButtonIndex === 0 ? 'white' : 'grey' }}>
+            Tab 1
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => setActiveButtonIndex(1)}
+          style={[
+            styles.buttonStyle,
+            activeButtonIndex === 1 ? styles.activeButton : null,
+          ]}
+        >
+          <Text style={{ color: activeButtonIndex === 1 ? 'white' : 'grey' }}>
+            Tab 2
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => setActiveButtonIndex(2)}
+          style={[
+            styles.buttonStyle,
+            activeButtonIndex === 2 ? styles.activeButton : null,
+          ]}
+        >
+          <Text style={{ color: activeButtonIndex === 2 ? 'white' : 'grey' }}>
+            Tab 3
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => setActiveButtonIndex(3)}
+          style={[
+            styles.buttonStyle,
+            activeButtonIndex === 3 ? styles.activeButton : null,
+          ]}
+        >
+          <Text style={{ color: activeButtonIndex === 3 ? 'white' : 'grey' }}>
+            Tab 4
+          </Text>
+        </TouchableOpacity>
       </View>
-      {this.renderSection()}
+
+      {renderSection()}
     </View>
   );
 };
@@ -242,6 +285,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     borderTopWidth: 1,
     borderTopColor: 'white',
+    paddingVertical: 10,
+  },
+  buttonStyle: {
+    padding: 10,
+  },
+  activeButton: {
+    borderBottomWidth: 2,
+    borderBottomColor: 'white',
   },
   posts: {
     flex: 1,
