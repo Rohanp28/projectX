@@ -71,7 +71,7 @@ const styleSheet = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     flex: 1,
-    backgroundColor: "#202020",
+    backgroundColor: "#303030",
     position: "absolute",
     zIndex: 999,
     height: SCREEN_HEIGHT,
