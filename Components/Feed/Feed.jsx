@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   Text,
@@ -6,14 +6,14 @@ import {
   StyleSheet,
   FlatList,
   Image,
-} from "react-native";
-import { useGlobalStyles } from "../../Components/GlobalStyles/GlobalStyles";
+} from 'react-native';
+import { useGlobalStyles } from '../../Components/GlobalStyles/GlobalStyles';
 
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import SimpleLineIcons from "@expo/vector-icons/SimpleLineIcons";
-import { Stories } from "../StoriesSection/StoriesSection";
-import { Header } from "../Header/Header";
-import { Colors } from "@/constants/Colors";
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons';
+import { Stories } from '../StoriesSection/StoriesSection';
+import { Header } from '../Header/Header';
+import { Colors } from '@/constants/Colors';
 
 export const Feed = () => {
   const [globalStyles, loaded] = useGlobalStyles();
@@ -22,50 +22,50 @@ export const Feed = () => {
 
   const posts = [
     {
-      accountProfileLogo: "",
-      accountUsername: "timesOfIndia",
-      post: "https://cdn.pixabay.com/photo/2020/05/15/14/17/water-5173774_960_720.jpg",
+      accountProfileLogo: '',
+      accountUsername: 'timesOfIndia',
+      post: 'https://cdn.pixabay.com/photo/2020/05/15/14/17/water-5173774_960_720.jpg',
       noOfLikes: 28,
       noOfComments: 25,
       caption:
-        "my first post saasasasasas asasasasasa asasasas asasasa asasasas asasas a.......!!",
-      id: "58694a0f-3da1-471f-bd96-145571e29d72",
+        'my first post saasasasasas asasasasasa asasasas asasasa asasasas asasas a.......!!',
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
     },
     {
-      accountProfileLogo: "",
-      accountUsername: "timesOfIndia",
-      post: "https://cdn.pixabay.com/photo/2022/12/01/04/40/backpacker-7628303_1280.jpg",
+      accountProfileLogo: '',
+      accountUsername: 'timesOfIndia',
+      post: 'https://cdn.pixabay.com/photo/2022/12/01/04/40/backpacker-7628303_1280.jpg',
       noOfLikes: 28,
       noOfComments: 25,
       caption:
-        "my first post saasasasasas asasasasasa asasasas asasasa asasasas asasas a.......!!",
-      id: "58694a0f-3da1-471f-bd96-145571e29d73",
+        'my first post saasasasasas asasasasasa asasasas asasasa asasasas asasas a.......!!',
+      id: '58694a0f-3da1-471f-bd96-145571e29d73',
     },
     {
-      accountProfileLogo: "",
-      accountUsername: "timesOfIndia",
-      post: "https://cdn.pixabay.com/photo/2023/06/16/15/14/sunset-8068208_1280.jpg",
+      accountProfileLogo: '',
+      accountUsername: 'timesOfIndia',
+      post: 'https://cdn.pixabay.com/photo/2023/06/16/15/14/sunset-8068208_1280.jpg',
       noOfLikes: 28,
       noOfComments: 25,
       caption:
-        "my first post saasasasasas asasasasasa asasasas asasasa asasasas asasas a.......!!",
-      id: "58694a0f-3da1-471f-bd96-145571e29d74",
+        'my first post saasasasasas asasasasasa asasasas asasasa asasasas asasas a.......!!',
+      id: '58694a0f-3da1-471f-bd96-145571e29d74',
     },
     {
-      accountProfileLogo: "",
-      accountUsername: "timesOfIndia",
-      post: "https://cdn.pixabay.com/photo/2024/02/22/15/18/clouds-8590310_1280.jpg",
+      accountProfileLogo: '',
+      accountUsername: 'timesOfIndia',
+      post: 'https://cdn.pixabay.com/photo/2024/02/22/15/18/clouds-8590310_1280.jpg',
       noOfLikes: 28,
       noOfComments: 25,
       caption:
-        "my first post saasasasasas asasasasasa asasasas asasasa asasasas asasas a.......!!",
-      id: "58694a0f-3da1-471f-bd96-145571e29d75",
+        'my first post saasasasasas asasasasasa asasasas asasasa asasasas asasas a.......!!',
+      id: '58694a0f-3da1-471f-bd96-145571e29d75',
     },
   ];
 
   const Item = ({ item, index }) => {
     return (
-      <View style={{ position: "relative" }}>
+      <View style={{ position: 'relative' }}>
         {index == 0 && (
           <>
             <Stories />
@@ -75,14 +75,14 @@ export const Feed = () => {
           <View style={styles.postHeader}>
             <View
               style={{
-                display: "flex",
-                flexDirection: "row",
+                display: 'flex',
+                flexDirection: 'row',
                 gap: 10,
-                alignItems: "center",
+                alignItems: 'center',
               }}
             >
               <Image
-                source={require("../../assets/Image/testImage.jpg")}
+                source={require('../../assets/Image/test1.jpg')}
                 style={{
                   width: 50,
                   height: 50,
@@ -93,9 +93,9 @@ export const Feed = () => {
                 style={{
                   ...globalStyles.textBold,
                   fontSize: 16,
-                  display: "flex",
-                  justifyContent: "space-between",
-                  color: "white",
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  color: 'white',
                   paddingTop: 5,
                   paddingBottom: 5,
                 }}
@@ -120,11 +120,11 @@ export const Feed = () => {
               style={{
                 ...globalStyles.textBold,
                 fontSize: 14,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
                 paddingRight: 10,
-                color: "white",
+                color: 'white',
               }}
             >
               {item.noOfLikes}
@@ -134,12 +134,12 @@ export const Feed = () => {
               style={{
                 ...globalStyles.textBold,
                 fontSize: 14,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
                 gap: 5,
                 paddingRight: 10,
-                color: "white",
+                color: 'white',
               }}
             >
               {item.noOfComments}
@@ -147,26 +147,26 @@ export const Feed = () => {
           </View>
           <View
             style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
               gap: 15,
               paddingLeft: 10,
               paddingRight: 10,
             }}
           >
             <Text
-              style={{ ...globalStyles.text, fontSize: 16, color: "white" }}
+              style={{ ...globalStyles.text, fontSize: 16, color: 'white' }}
             >
               <Text
                 style={{
                   ...globalStyles.textBold,
                   fontSize: 18,
-                  color: "white",
+                  color: 'white',
                 }}
               >
                 {item.accountUsername}
-              </Text>{" "}
+              </Text>{' '}
               {item.caption}
             </Text>
           </View>
@@ -174,17 +174,17 @@ export const Feed = () => {
             style={{
               paddingLeft: 10,
               paddingRight: 10,
-              display: "flex",
+              display: 'flex',
               gap: 5,
             }}
           >
             <Text
-              style={{ ...globalStyles.textBold, fontSize: 14, color: "white" }}
+              style={{ ...globalStyles.textBold, fontSize: 14, color: 'white' }}
             >
               View all comments
             </Text>
             <Text
-              style={{ ...globalStyles.textBold, fontSize: 12, color: "grey" }}
+              style={{ ...globalStyles.textBold, fontSize: 12, color: 'grey' }}
             >
               28 hours ago
             </Text>
@@ -221,34 +221,34 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.backgroundColor,
   },
   postContainer: {
-    display: "flex",
-    flexDirection: "column",
+    display: 'flex',
+    flexDirection: 'column',
     marginTop: 10,
     marginBottom: 10,
     gap: 8,
-    width: "100%",
+    width: '100%',
     backgroundColor: Colors.backgroundColor,
   },
   postHeader: {
-    display: "flex",
-    flexDirection: "row",
+    display: 'flex',
+    flexDirection: 'row',
     paddingLeft: 10,
     paddingRight: 10,
-    justifyContent: "space-between",
-    alignItems: "center",
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   postImage: {
     marginTop: 5,
     height: 600,
   },
   postPhoto: {
-    height: "100%",
-    width: "100%", // Adjusts the width to fit the screen
+    height: '100%',
+    width: '100%', // Adjusts the width to fit the screen
     aspectRatio: 1, // Keeps the aspect ratio consistent
   },
   postFooter: {
-    display: "flex",
-    flexDirection: "row",
+    display: 'flex',
+    flexDirection: 'row',
     gap: 5,
     paddingRight: 10,
     paddingLeft: 10,

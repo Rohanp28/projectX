@@ -12,31 +12,62 @@ import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons';
 import { useGlobalStyles } from '@/Components/GlobalStyles/GlobalStyles';
 import { Colors } from '@/constants/Colors';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 
 let { width, height } = Dimensions.get('window');
 
-const Profile = () => {
+const Profile = ({ navigation }) => {
   const [globalStyles, loaded] = useGlobalStyles();
   const [activeButtonIndex, setActiveButtonIndex] = useState(0);
 
   const images = [
-    require('../../../assets/Image/testImage.jpg'),
-    require('../../../assets/Image/testImage.jpg'),
-    require('../../../assets/Image/testImage.jpg'),
-    require('../../../assets/Image/testImage.jpg'),
+    {
+      name: 'dhoni',
+      url: require('../../../assets/Image/test2.jpg'),
+      soruce: 'self',
+      type: 'video',
+    },
+    {
+      name: 'dhoni',
+      url: require('../../../assets/Image/test5.jpg'),
+      soruce: 'self',
+      type: 'image',
+    },
+    {
+      name: 'virat',
+      url: require('../../../assets/Image/test6.jpg'),
+      soruce: 'tagged',
+      type: 'image',
+    },
+    {
+      name: 'rohit',
+      url: require('../../../assets/Image/test7.jpg'),
+      soruce: 'tagged',
+      type: 'image',
+    },
   ];
 
   const renderSection = () => {
+    let data1 = images;
+    if (activeButtonIndex == 1) {
+      data1 = images.filter((image) => image.type == 'video');
+    }
+    if (activeButtonIndex == 2) {
+      data1 = images.filter((image) => image.soruce == 'tagged');
+    }
     return (
       <View style={styles.posts}>
         <FlatList
-          data={images}
+          data={data1}
           keyExtractor={(item, index) => index.toString()}
           numColumns={3}
           renderItem={({ item }) => (
             <View style={styles.imageContainer}>
-              <Image source={item} style={styles.image} />
+              <Image source={item.url} style={styles.image} />
             </View>
           )}
         />
@@ -60,12 +91,17 @@ const Profile = () => {
             __rohan____28__
           </Text>
         </View>
-        <SimpleLineIcons name="menu" size={20} color="white" />
+        <SimpleLineIcons
+          name="menu"
+          size={20}
+          color="white"
+          onPress={() => navigation.navigate('Details')}
+        />
       </View>
 
       <View style={styles.profileInfo}>
         <Image
-          source={require('../../../assets/Image/testImage.jpg')}
+          source={require('../../../assets/Image/test1.jpg')}
           style={styles.profileImage}
         />
 
@@ -200,8 +236,12 @@ const Profile = () => {
             activeButtonIndex === 0 ? styles.activeButton : null,
           ]}
         >
-          <Text style={{ color: activeButtonIndex === 0 ? 'white' : 'grey' }}>
-            Tab 1
+          <Text>
+            <Ionicons
+              name="grid-outline"
+              size={30}
+              color={activeButtonIndex === 0 ? 'white' : 'grey'}
+            />
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -211,8 +251,12 @@ const Profile = () => {
             activeButtonIndex === 1 ? styles.activeButton : null,
           ]}
         >
-          <Text style={{ color: activeButtonIndex === 1 ? 'white' : 'grey' }}>
-            Tab 2
+          <Text>
+            <MaterialCommunityIcons
+              name="movie-open-outline"
+              size={30}
+              color={activeButtonIndex === 1 ? 'white' : 'grey'}
+            />
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -222,19 +266,12 @@ const Profile = () => {
             activeButtonIndex === 2 ? styles.activeButton : null,
           ]}
         >
-          <Text style={{ color: activeButtonIndex === 2 ? 'white' : 'grey' }}>
-            Tab 3
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => setActiveButtonIndex(3)}
-          style={[
-            styles.buttonStyle,
-            activeButtonIndex === 3 ? styles.activeButton : null,
-          ]}
-        >
-          <Text style={{ color: activeButtonIndex === 3 ? 'white' : 'grey' }}>
-            Tab 4
+          <Text>
+            <FontAwesome5
+              name="id-badge"
+              size={30}
+              color={activeButtonIndex === 2 ? 'white' : 'grey'}
+            />
           </Text>
         </TouchableOpacity>
       </View>
@@ -284,7 +321,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     borderTopWidth: 1,
-    borderTopColor: 'white',
+    borderTopColor: '#69696980',
     paddingVertical: 10,
   },
   buttonStyle: {

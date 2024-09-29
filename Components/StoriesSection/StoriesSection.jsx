@@ -1,5 +1,5 @@
-import { Colors } from "@/constants/Colors";
-import React from "react";
+import { Colors } from '@/constants/Colors';
+import React from 'react';
 import {
   View,
   StyleSheet,
@@ -7,39 +7,39 @@ import {
   FlatList,
   Touchable,
   TouchableOpacity,
-} from "react-native";
+} from 'react-native';
 
 export const Stories = () => {
   const data = [
     {
-      userName: "kush",
-      image: "image",
-      id: "1",
+      userName: 'kush',
+      image: 'image',
+      id: '1',
     },
     {
-      userName: "kush",
-      image: "image",
-      id: "2",
+      userName: 'kush',
+      image: 'image',
+      id: '2',
     },
     {
-      userName: "kush",
-      image: "image",
-      id: "3",
+      userName: 'kush',
+      image: 'image',
+      id: '3',
     },
     {
-      userName: "kush",
-      image: "image",
-      id: "4",
+      userName: 'kush',
+      image: 'image',
+      id: '4',
     },
     {
-      userName: "kush",
-      image: "image",
-      id: "5",
+      userName: 'kush',
+      image: 'image',
+      id: '5',
     },
     {
-      userName: "kush",
-      image: "image",
-      id: "6",
+      userName: 'kush',
+      image: 'image',
+      id: '6',
     },
   ];
   return (
@@ -50,10 +50,10 @@ export const Stories = () => {
         renderItem={(item) => (
           <TouchableOpacity style={styleSheet.currentUserContainer}>
             <Image
-              source={require("../../assets/Image/testImage.jpg")}
+              source={require('../../assets/Image/test1.jpg')}
               style={{
-                width: "100%",
-                height: "100%",
+                width: '100%',
+                height: '100%',
                 borderRadius: 100,
               }}
             />
@@ -68,9 +68,9 @@ export const Stories = () => {
 
 const styleSheet = StyleSheet.create({
   container: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
 
     backgroundColor: Colors.backgroundColor,
     height: 110,
@@ -80,7 +80,7 @@ const styleSheet = StyleSheet.create({
     padding: 2,
     width: 75,
     height: 75,
-    borderColor: "#696969",
+    borderColor: '#696969',
     borderWidth: 3,
     borderTopRightRadius: 50,
     borderTopLeftRadius: 50,
