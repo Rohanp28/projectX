@@ -33,7 +33,7 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name="Post"
+          name="Add"
           options={{
             tabBarIcon: ({ color }) => (
               <Ionicons name="add-circle-outline" size={28} color={color} />

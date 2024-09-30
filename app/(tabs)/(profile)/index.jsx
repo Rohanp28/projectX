@@ -12,10 +12,9 @@ import SimpleLineIcons from "@expo/vector-icons/SimpleLineIcons";
 import { useGlobalStyles } from "@/Components/GlobalStyles/GlobalStyles";
 import { Colors } from "@/constants/Colors";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
+
 import { FontAwesome5 } from "@expo/vector-icons";
 
 let { width, height } = Dimensions.get("window");
@@ -191,14 +190,13 @@ const Profile = ({ navigation }) => {
       </View>
 
       <View style={styles.profileactionbutton}>
-        <TouchableOpacity>
+        <TouchableOpacity style={{ flexGrow: 1 }}>
           <Text
             style={{
               ...globalStyles.textBold,
               fontSize: 14,
               color: "white",
               backgroundColor: "#69696980",
-              width: 170,
               padding: 10,
               borderRadius: 5,
               textAlign: "center",
@@ -207,14 +205,13 @@ const Profile = ({ navigation }) => {
             Edit profile
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity style={{ flexGrow: 1 }}>
           <Text
             style={{
               ...globalStyles.textBold,
               fontSize: 14,
               color: "white",
               backgroundColor: "#69696980",
-              width: 170,
               padding: 10,
               borderRadius: 5,
               textAlign: "center",
@@ -346,12 +343,12 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   profileactionbutton: {
+    display: "flex",
+    width: "100%",
     flexDirection: "row",
-    justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 10,
     gap: 10,
-    padding: 10,
   },
 });
 
