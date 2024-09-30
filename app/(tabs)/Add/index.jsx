@@ -42,15 +42,13 @@ export default function Add() {
       <View
         style={{
           width: "100%",
-          height: 200,
+          height: "100%",
           border: 2,
-          padding: 50,
-          marginLeft: 50,
         }}
       >
         {albums &&
-          albums.map((album) => {
-            return <AlbumEntry album={album} />;
+          albums.map((album, index) => {
+            return index < 20 && <AlbumEntry album={album} />;
           })}
       </View>
     </ScrollView>
