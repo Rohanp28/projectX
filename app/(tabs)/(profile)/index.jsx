@@ -1,40 +1,73 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Dimensions,
   View,
   Text,
   StyleSheet,
   Image,
-  Button,
+  TouchableOpacity,
   FlatList,
 } from "react-native";
 import SimpleLineIcons from "@expo/vector-icons/SimpleLineIcons";
 import { useGlobalStyles } from "@/Components/GlobalStyles/GlobalStyles";
 import { Colors } from "@/constants/Colors";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 let { width, height } = Dimensions.get("window");
-const Profile = () => {
+
+const Profile = ({ navigation }) => {
   const [globalStyles, loaded] = useGlobalStyles();
+  const [activeButtonIndex, setActiveButtonIndex] = useState(0);
 
   const images = [
-    require("../../../assets/Avatar/avatar1.png"),
-    require("../../../assets/Avatar/avtar2.png"),
-    require("../../../assets/Avatar/avtar3.jpg"),
-    require("../../../assets/Avatar/avtar4.jpeg"),
+    {
+      name: "dhoni",
+      url: require("../../../assets/Image/test2.jpg"),
+      soruce: "self",
+      type: "video",
+    },
+    {
+      name: "dhoni",
+      url: require("../../../assets/Image/test5.jpg"),
+      soruce: "self",
+      type: "image",
+    },
+    {
+      name: "virat",
+      url: require("../../../assets/Image/test6.jpg"),
+      soruce: "tagged",
+      type: "image",
+    },
+    {
+      name: "rohit",
+      url: require("../../../assets/Image/test7.jpg"),
+      soruce: "tagged",
+      type: "image",
+    },
   ];
 
-  renderSection = () => {
+  const renderSection = () => {
+    let data1 = images;
+    if (activeButtonIndex == 1) {
+      data1 = images.filter((image) => image.type == "video");
+    }
+    if (activeButtonIndex == 2) {
+      data1 = images.filter((image) => image.soruce == "tagged");
+    }
     return (
       <View style={styles.posts}>
         <FlatList
-          data={images}
+          data={data1}
           keyExtractor={(item, index) => index.toString()}
           numColumns={3}
           renderItem={({ item }) => (
             <View style={styles.imageContainer}>
-              <Image source={item} style={styles.image} />
+              <Image source={item.url} style={styles.image} />
             </View>
           )}
         />
@@ -58,12 +91,17 @@ const Profile = () => {
             __rohan____28__
           </Text>
         </View>
-        <SimpleLineIcons name="menu" size={20} color="white" />
+        <SimpleLineIcons
+          name="menu"
+          size={20}
+          color="white"
+          onPress={() => navigation.navigate("Details")}
+        />
       </View>
 
       <View style={styles.profileInfo}>
         <Image
-          source={require("../../../assets/Avatar/avtar5.jpg")}
+          source={require("../../../assets/Image/test1.jpg")}
           style={styles.profileImage}
         />
 
@@ -153,7 +191,7 @@ const Profile = () => {
       </View>
 
       <View style={styles.profileactionbutton}>
-        <View>
+        <TouchableOpacity>
           <Text
             style={{
               ...globalStyles.textBold,
@@ -163,12 +201,13 @@ const Profile = () => {
               width: 170,
               padding: 10,
               borderRadius: 5,
+              textAlign: "center",
             }}
           >
             Edit profile
           </Text>
-        </View>
-        <View>
+        </TouchableOpacity>
+        <TouchableOpacity>
           <Text
             style={{
               ...globalStyles.textBold,
@@ -178,25 +217,66 @@ const Profile = () => {
               width: 170,
               padding: 10,
               borderRadius: 5,
+              textAlign: "center",
             }}
           >
             Share profile
           </Text>
-        </View>
+        </TouchableOpacity>
         <View style={styles.adduser}>
           <Ionicons name="person-add-sharp" size={20} color="white" />
         </View>
       </View>
 
-      <View>
-        <View style={styles.actionButton}>
-          <Button title="Learn More">1</Button>
-          <Button title="Learn More">1</Button>
-          <Button title="Learn More">1</Button>
-          <Button title="Learn More">1</Button>
-        </View>
+      <View style={styles.actionButton}>
+        <TouchableOpacity
+          onPress={() => setActiveButtonIndex(0)}
+          style={[
+            styles.buttonStyle,
+            activeButtonIndex === 0 ? styles.activeButton : null,
+          ]}
+        >
+          <Text>
+            <Ionicons
+              name="grid-outline"
+              size={30}
+              color={activeButtonIndex === 0 ? "white" : "grey"}
+            />
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => setActiveButtonIndex(1)}
+          style={[
+            styles.buttonStyle,
+            activeButtonIndex === 1 ? styles.activeButton : null,
+          ]}
+        >
+          <Text>
+            <MaterialCommunityIcons
+              name="movie-open-outline"
+              size={30}
+              color={activeButtonIndex === 1 ? "white" : "grey"}
+            />
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => setActiveButtonIndex(2)}
+          style={[
+            styles.buttonStyle,
+            activeButtonIndex === 2 ? styles.activeButton : null,
+          ]}
+        >
+          <Text>
+            <FontAwesome5
+              name="id-badge"
+              size={30}
+              color={activeButtonIndex === 2 ? "white" : "grey"}
+            />
+          </Text>
+        </TouchableOpacity>
       </View>
-      {this.renderSection()}
+
+      {renderSection()}
     </View>
   );
 };
@@ -241,7 +321,15 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     borderTopWidth: 1,
-    borderTopColor: "white",
+    borderTopColor: "#69696980",
+    paddingVertical: 10,
+  },
+  buttonStyle: {
+    padding: 10,
+  },
+  activeButton: {
+    borderBottomWidth: 2,
+    borderBottomColor: "white",
   },
   posts: {
     flex: 1,

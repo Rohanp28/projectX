@@ -13,32 +13,32 @@ export const Stories = () => {
   const data = [
     {
       userName: "kush",
-      image: require("../../assets/Avatar/avatar1.png"),
+      image: "image",
       id: "1",
     },
     {
       userName: "kush",
-      image: require("../../assets/Avatar/avtar2.png"),
+      image: "image",
       id: "2",
     },
     {
       userName: "kush",
-      image: require("../../assets/Avatar/avtar2.webp"),
+      image: "image",
       id: "3",
     },
     {
       userName: "kush",
-      image: require("../../assets/Avatar/avtar3.jpg"),
+      image: "image",
       id: "4",
     },
     {
       userName: "kush",
-      image: require("../../assets/Avatar/avtar4.jpeg"),
+      image: "image",
       id: "5",
     },
     {
       userName: "kush",
-      image: require("../../assets/Avatar/avtar5.jpg"),
+      image: "image",
       id: "6",
     },
   ];
@@ -50,7 +50,7 @@ export const Stories = () => {
         renderItem={({ item }) => (
           <TouchableOpacity style={styleSheet.currentUserContainer}>
             <Image
-              source={item.image}
+              source={require("../../assets/Image/test1.jpg")}
               style={{
                 width: "100%",
                 height: "100%",
