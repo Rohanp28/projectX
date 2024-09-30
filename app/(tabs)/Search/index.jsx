@@ -180,6 +180,7 @@ const Search = () => {
               scrollViewRef={scrollViewRef}
               index={2}
               scrollHeight={height}
+              source={require("../../../assets/videos/test1.mp4")}
             />
           </View>
 

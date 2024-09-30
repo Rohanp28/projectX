@@ -82,7 +82,7 @@ export const Feed = () => {
               }}
             >
               <Image
-                source={require("../../assets/Image/testImage.jpg")}
+                source={require("../../assets/Avatar/avtar2.webp")}
                 style={{
                   width: 50,
                   height: 50,

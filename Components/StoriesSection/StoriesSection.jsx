@@ -13,32 +13,32 @@ export const Stories = () => {
   const data = [
     {
       userName: "kush",
-      image: "image",
+      image: require("../../assets/Avatar/avatar1.png"),
       id: "1",
     },
     {
       userName: "kush",
-      image: "image",
+      image: require("../../assets/Avatar/avtar2.png"),
       id: "2",
     },
     {
       userName: "kush",
-      image: "image",
+      image: require("../../assets/Avatar/avtar2.webp"),
       id: "3",
     },
     {
       userName: "kush",
-      image: "image",
+      image: require("../../assets/Avatar/avtar3.jpg"),
       id: "4",
     },
     {
       userName: "kush",
-      image: "image",
+      image: require("../../assets/Avatar/avtar4.jpeg"),
       id: "5",
     },
     {
       userName: "kush",
-      image: "image",
+      image: require("../../assets/Avatar/avtar5.jpg"),
       id: "6",
     },
   ];
@@ -47,10 +47,10 @@ export const Stories = () => {
       {/* current user profile */}
       <FlatList
         data={data}
-        renderItem={(item) => (
+        renderItem={({ item }) => (
           <TouchableOpacity style={styleSheet.currentUserContainer}>
             <Image
-              source={require("../../assets/Image/testImage.jpg")}
+              source={item.image}
               style={{
                 width: "100%",
                 height: "100%",

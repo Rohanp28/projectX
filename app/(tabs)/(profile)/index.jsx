@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Dimensions,
   View,
@@ -7,22 +7,22 @@ import {
   Image,
   Button,
   FlatList,
-} from 'react-native';
-import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons';
-import { useGlobalStyles } from '@/Components/GlobalStyles/GlobalStyles';
-import { Colors } from '@/constants/Colors';
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import Ionicons from '@expo/vector-icons/Ionicons';
+} from "react-native";
+import SimpleLineIcons from "@expo/vector-icons/SimpleLineIcons";
+import { useGlobalStyles } from "@/Components/GlobalStyles/GlobalStyles";
+import { Colors } from "@/constants/Colors";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
-let { width, height } = Dimensions.get('window');
+let { width, height } = Dimensions.get("window");
 const Profile = () => {
   const [globalStyles, loaded] = useGlobalStyles();
 
   const images = [
-    require('../../../assets/Image/testImage.jpg'),
-    require('../../../assets/Image/testImage.jpg'),
-    require('../../../assets/Image/testImage.jpg'),
-    require('../../../assets/Image/testImage.jpg'),
+    require("../../../assets/Avatar/avatar1.png"),
+    require("../../../assets/Avatar/avtar2.png"),
+    require("../../../assets/Avatar/avtar3.jpg"),
+    require("../../../assets/Avatar/avtar4.jpeg"),
   ];
 
   renderSection = () => {
@@ -51,7 +51,7 @@ const Profile = () => {
             style={{
               ...globalStyles.textBold,
               fontSize: 18,
-              color: 'white',
+              color: "white",
               paddingVertical: 5,
             }}
           >
@@ -63,7 +63,7 @@ const Profile = () => {
 
       <View style={styles.profileInfo}>
         <Image
-          source={require('../../../assets/Image/testImage.jpg')}
+          source={require("../../../assets/Avatar/avtar5.jpg")}
           style={styles.profileImage}
         />
 
@@ -72,7 +72,7 @@ const Profile = () => {
             style={{
               ...globalStyles.textBold,
               fontSize: 16,
-              color: 'white',
+              color: "white",
             }}
           >
             1
@@ -81,7 +81,7 @@ const Profile = () => {
             style={{
               ...globalStyles.text,
               fontSize: 16,
-              color: 'white',
+              color: "white",
             }}
           >
             posts
@@ -93,7 +93,7 @@ const Profile = () => {
             style={{
               ...globalStyles.textBold,
               fontSize: 16,
-              color: 'white',
+              color: "white",
             }}
           >
             298
@@ -102,7 +102,7 @@ const Profile = () => {
             style={{
               ...globalStyles.text,
               fontSize: 16,
-              color: 'white',
+              color: "white",
             }}
           >
             followers
@@ -114,7 +114,7 @@ const Profile = () => {
             style={{
               ...globalStyles.textBold,
               fontSize: 16,
-              color: 'white',
+              color: "white",
             }}
           >
             399
@@ -123,7 +123,7 @@ const Profile = () => {
             style={{
               ...globalStyles.text,
               fontSize: 16,
-              color: 'white',
+              color: "white",
             }}
           >
             following
@@ -136,7 +136,7 @@ const Profile = () => {
           style={{
             ...globalStyles.textBold,
             fontSize: 16,
-            color: 'white',
+            color: "white",
           }}
         >
           Rohan
@@ -145,7 +145,7 @@ const Profile = () => {
           style={{
             ...globalStyles.text,
             fontSize: 14,
-            color: 'white',
+            color: "white",
           }}
         >
           My life, my rules.....
@@ -158,8 +158,8 @@ const Profile = () => {
             style={{
               ...globalStyles.textBold,
               fontSize: 14,
-              color: 'white',
-              backgroundColor: '#69696980',
+              color: "white",
+              backgroundColor: "#69696980",
               width: 170,
               padding: 10,
               borderRadius: 5,
@@ -173,8 +173,8 @@ const Profile = () => {
             style={{
               ...globalStyles.textBold,
               fontSize: 14,
-              color: 'white',
-              backgroundColor: '#69696980',
+              color: "white",
+              backgroundColor: "#69696980",
               width: 170,
               padding: 10,
               borderRadius: 5,
@@ -208,20 +208,20 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     height: 60,
   },
   leftSection: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: 15,
   },
   profileInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     marginTop: 10,
     padding: 10,
   },
@@ -231,17 +231,17 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   stat: {
-    alignItems: 'center',
+    alignItems: "center",
   },
   aboutSection: {
     padding: 10,
     paddingTop: 5,
   },
   actionButton: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+    flexDirection: "row",
+    justifyContent: "space-around",
     borderTopWidth: 1,
-    borderTopColor: 'white',
+    borderTopColor: "white",
   },
   posts: {
     flex: 1,
@@ -253,14 +253,14 @@ const styles = StyleSheet.create({
     padding: 2,
   },
   image: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
   },
   profileactionbutton: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     marginBottom: 10,
     gap: 10,
     padding: 10,
