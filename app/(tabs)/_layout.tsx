@@ -37,7 +37,9 @@ export default function TabLayout() {
           options={{
             tabBarIcon: ({ color }) => (
               <Ionicons name="add-circle-outline" size={28} color={color} />
-            ),
+            ), tabBarStyle: {
+              display: "none"
+            }
           }}
         />
 

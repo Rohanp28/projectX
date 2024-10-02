@@ -1,56 +1,34 @@
 import React, { useEffect, useState } from "react";
-import { Text, View } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
-import { useGlobalStyles } from "../../../Components/GlobalStyles/GlobalStyles";
-import * as MediaLibrary from "expo-media-library";
-import { AlbumEntry } from "./AlbumEntry";
+import * as MediaLibrary from 'expo-media-library';
+import { Image, ScrollView, View } from "react-native";
+import Assest from "./Assest";
 
-export default function Add() {
-  const [globalStyles, loaded] = useGlobalStyles();
-  const [albums, setAlbums] = useState(null);
-  const [permissionResponse, requestPermission] = MediaLibrary.usePermissions();
-  async function getAlbums() {
-    console.log("entered");
-    console.log("permission Response ==>", permissionResponse);
-    if (permissionResponse?.status !== "granted") {
-      await requestPermission();
+export default AddPost = () => {
+  const [albums, setAlbums] = useState([]);
+  const [permissionRes, setPermissionRes] = MediaLibrary.usePermissions();
+  const [selectedImage, setSelectedImage] = useState()
+
+  const fetchAlbums = async () => {
+    if (permissionRes?.status !== "granted") {
+      await setPermissionRes()
+    } else {
+      const albums = await MediaLibrary.getAlbumsAsync();
+      setAlbums(albums);
     }
-    const fetchedAlbums = await MediaLibrary.getAlbumsAsync({
-      includeSmartAlbums: true,
-    });
-    setAlbums(fetchedAlbums);
   }
+
   useEffect(() => {
-    getAlbums();
-  }, [permissionResponse?.status]);
+    fetchAlbums()
+  }, [permissionRes?.status])
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: "" }}>
-      {/* top header */}
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          padding: 10,
-        }}
-      >
-        <Text style={{ ...globalStyles.text, color: "black" }}>
-          Select Post
-        </Text>
-        <Text style={{ ...globalStyles.text, color: "yellow" }}>Next</Text>
+
+    <View style={{ flex: 1, backgroundColor: "black" }} >
+      {/* preview */}
+      <View style={{ width: "100%", height: "50%", backgroundColor: "black" }}>
+        <Image source={{ uri: selectedImage }} style={{ width: "100%", height: "100%", objectFit: "cover", position: "absolute" }} />
       </View>
-      <View
-        style={{
-          width: "100%",
-          height: "100%",
-          border: 2,
-        }}
-      >
-        {albums &&
-          albums.map((album, index) => {
-            return index < 20 && <AlbumEntry album={album} />;
-          })}
-      </View>
-    </ScrollView>
-  );
+      <Assest setSelectedImage={setSelectedImage} />
+    </View>
+
+  )
 }
