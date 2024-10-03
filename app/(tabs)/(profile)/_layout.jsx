@@ -12,6 +12,7 @@ export default function ProfileLayout() {
       screenOptions={{
         headerStyle: {
           backgroundColor: '#f4511e',
+          height: 50,
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -21,8 +22,17 @@ export default function ProfileLayout() {
       }}
     >
       <Stack.Screen name="index" component={Profile} />
-      <Stack.Screen name="Details" component={DetailsScreen} />
-      {/* <Stack.Screen name="index" /> */}
+      <Stack.Screen
+        name="Details"
+        component={DetailsScreen}
+        options={{
+          headerShown: true,
+          title: 'Settings and activity',
+          headerStyle: {
+            backgroundColor: 'black',
+          },
+        }}
+      />
     </Stack.Navigator>
   );
 }
