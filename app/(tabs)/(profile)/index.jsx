@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Dimensions,
   View,
@@ -7,17 +7,18 @@ import {
   Image,
   TouchableOpacity,
   FlatList,
-} from "react-native";
-import SimpleLineIcons from "@expo/vector-icons/SimpleLineIcons";
-import { useGlobalStyles } from "@/Components/GlobalStyles/GlobalStyles";
-import { Colors } from "@/constants/Colors";
-import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+} from 'react-native';
+import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons';
+import { useGlobalStyles } from '@/Components/GlobalStyles/GlobalStyles';
+import { Colors } from '@/constants/Colors';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import { FontAwesome5 } from "@expo/vector-icons";
+import { FontAwesome5 } from '@expo/vector-icons';
+import { router, useRouter } from 'expo-router';
 
-let { width, height } = Dimensions.get("window");
+let { width, height } = Dimensions.get('window');
 
 const Profile = ({ navigation }) => {
   const [globalStyles, loaded] = useGlobalStyles();
@@ -25,38 +26,38 @@ const Profile = ({ navigation }) => {
 
   const images = [
     {
-      name: "dhoni",
-      url: require("../../../assets/Image/test2.jpg"),
-      soruce: "self",
-      type: "video",
+      name: 'dhoni',
+      url: require('../../../assets/Image/test2.jpg'),
+      soruce: 'self',
+      type: 'video',
     },
     {
-      name: "dhoni",
-      url: require("../../../assets/Image/test5.jpg"),
-      soruce: "self",
-      type: "image",
+      name: 'dhoni',
+      url: require('../../../assets/Image/test5.jpg'),
+      soruce: 'self',
+      type: 'image',
     },
     {
-      name: "virat",
-      url: require("../../../assets/Image/test6.jpg"),
-      soruce: "tagged",
-      type: "image",
+      name: 'virat',
+      url: require('../../../assets/Image/test6.jpg'),
+      soruce: 'tagged',
+      type: 'image',
     },
     {
-      name: "rohit",
-      url: require("../../../assets/Image/test7.jpg"),
-      soruce: "tagged",
-      type: "image",
+      name: 'rohit',
+      url: require('../../../assets/Image/test7.jpg'),
+      soruce: 'tagged',
+      type: 'image',
     },
   ];
 
   const renderSection = () => {
     let data1 = images;
     if (activeButtonIndex == 1) {
-      data1 = images.filter((image) => image.type == "video");
+      data1 = images.filter((image) => image.type == 'video');
     }
     if (activeButtonIndex == 2) {
-      data1 = images.filter((image) => image.soruce == "tagged");
+      data1 = images.filter((image) => image.soruce == 'tagged');
     }
     return (
       <View style={styles.posts}>
@@ -83,7 +84,7 @@ const Profile = ({ navigation }) => {
             style={{
               ...globalStyles.textBold,
               fontSize: 18,
-              color: "white",
+              color: 'white',
               paddingVertical: 5,
             }}
           >
@@ -94,13 +95,13 @@ const Profile = ({ navigation }) => {
           name="menu"
           size={20}
           color="white"
-          onPress={() => navigation.navigate("Details")}
+          onPress={() => navigation.navigate('Details')}
         />
       </View>
 
       <View style={styles.profileInfo}>
         <Image
-          source={require("../../../assets/Image/test1.jpg")}
+          source={require('../../../assets/Image/test1.jpg')}
           style={styles.profileImage}
         />
 
@@ -109,7 +110,7 @@ const Profile = ({ navigation }) => {
             style={{
               ...globalStyles.textBold,
               fontSize: 16,
-              color: "white",
+              color: 'white',
             }}
           >
             1
@@ -118,7 +119,7 @@ const Profile = ({ navigation }) => {
             style={{
               ...globalStyles.text,
               fontSize: 16,
-              color: "white",
+              color: 'white',
             }}
           >
             posts
@@ -130,7 +131,7 @@ const Profile = ({ navigation }) => {
             style={{
               ...globalStyles.textBold,
               fontSize: 16,
-              color: "white",
+              color: 'white',
             }}
           >
             298
@@ -139,7 +140,7 @@ const Profile = ({ navigation }) => {
             style={{
               ...globalStyles.text,
               fontSize: 16,
-              color: "white",
+              color: 'white',
             }}
           >
             followers
@@ -151,7 +152,7 @@ const Profile = ({ navigation }) => {
             style={{
               ...globalStyles.textBold,
               fontSize: 16,
-              color: "white",
+              color: 'white',
             }}
           >
             399
@@ -160,7 +161,7 @@ const Profile = ({ navigation }) => {
             style={{
               ...globalStyles.text,
               fontSize: 16,
-              color: "white",
+              color: 'white',
             }}
           >
             following
@@ -173,7 +174,7 @@ const Profile = ({ navigation }) => {
           style={{
             ...globalStyles.textBold,
             fontSize: 16,
-            color: "white",
+            color: 'white',
           }}
         >
           Rohan
@@ -182,7 +183,7 @@ const Profile = ({ navigation }) => {
           style={{
             ...globalStyles.text,
             fontSize: 14,
-            color: "white",
+            color: 'white',
           }}
         >
           My life, my rules.....
@@ -190,16 +191,25 @@ const Profile = ({ navigation }) => {
       </View>
 
       <View style={styles.profileactionbutton}>
-        <TouchableOpacity style={{ flexGrow: 1 }}>
+        <TouchableOpacity
+          style={{ flexGrow: 1 }}
+          onPress={() =>
+            navigation.navigate('EditProfile', {
+              name: 'rohan',
+              userName: ' __rohan____28__',
+              profileImage: require('../../../assets/Image/test1.jpg'),
+            })
+          }
+        >
           <Text
             style={{
               ...globalStyles.textBold,
               fontSize: 14,
-              color: "white",
-              backgroundColor: "#69696980",
+              color: 'white',
+              backgroundColor: '#69696980',
               padding: 10,
               borderRadius: 5,
-              textAlign: "center",
+              textAlign: 'center',
             }}
           >
             Edit profile
@@ -210,11 +220,11 @@ const Profile = ({ navigation }) => {
             style={{
               ...globalStyles.textBold,
               fontSize: 14,
-              color: "white",
-              backgroundColor: "#69696980",
+              color: 'white',
+              backgroundColor: '#69696980',
               padding: 10,
               borderRadius: 5,
-              textAlign: "center",
+              textAlign: 'center',
             }}
           >
             Share profile
@@ -237,7 +247,7 @@ const Profile = ({ navigation }) => {
             <Ionicons
               name="grid-outline"
               size={30}
-              color={activeButtonIndex === 0 ? "white" : "grey"}
+              color={activeButtonIndex === 0 ? 'white' : 'grey'}
             />
           </Text>
         </TouchableOpacity>
@@ -252,7 +262,7 @@ const Profile = ({ navigation }) => {
             <MaterialCommunityIcons
               name="movie-open-outline"
               size={30}
-              color={activeButtonIndex === 1 ? "white" : "grey"}
+              color={activeButtonIndex === 1 ? 'white' : 'grey'}
             />
           </Text>
         </TouchableOpacity>
@@ -267,7 +277,7 @@ const Profile = ({ navigation }) => {
             <FontAwesome5
               name="id-badge"
               size={30}
-              color={activeButtonIndex === 2 ? "white" : "grey"}
+              color={activeButtonIndex === 2 ? 'white' : 'grey'}
             />
           </Text>
         </TouchableOpacity>
@@ -285,20 +295,20 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   header: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     height: 60,
   },
   leftSection: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     gap: 15,
   },
   profileInfo: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     marginTop: 10,
     padding: 10,
   },
@@ -308,17 +318,17 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   stat: {
-    alignItems: "center",
+    alignItems: 'center',
   },
   aboutSection: {
     padding: 10,
     paddingTop: 5,
   },
   actionButton: {
-    flexDirection: "row",
-    justifyContent: "space-around",
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     borderTopWidth: 1,
-    borderTopColor: "#69696980",
+    borderTopColor: '#69696980',
     paddingVertical: 10,
   },
   buttonStyle: {
@@ -326,7 +336,7 @@ const styles = StyleSheet.create({
   },
   activeButton: {
     borderBottomWidth: 2,
-    borderBottomColor: "white",
+    borderBottomColor: 'white',
   },
   posts: {
     flex: 1,
@@ -338,15 +348,15 @@ const styles = StyleSheet.create({
     padding: 2,
   },
   image: {
-    width: "100%",
-    height: "100%",
-    resizeMode: "cover",
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
   },
   profileactionbutton: {
-    display: "flex",
-    width: "100%",
-    flexDirection: "row",
-    alignItems: "center",
+    display: 'flex',
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 10,
     gap: 10,
   },

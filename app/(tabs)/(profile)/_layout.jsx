@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import DetailsScreen from './DetailsScreen';
 import Profile from '../(profile)/index';
+import EditProfileScreen from './EditProfileScreen';
 const Stack = createNativeStackNavigator();
 
 export default function ProfileLayout() {
@@ -31,6 +32,13 @@ export default function ProfileLayout() {
           headerStyle: {
             backgroundColor: 'black',
           },
+        }}
+      />
+      <Stack.Screen
+        name="EditProfile"
+        component={EditProfileScreen}
+        options={{
+          headerShown: false,
         }}
       />
     </Stack.Navigator>
