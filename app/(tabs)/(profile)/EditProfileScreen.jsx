@@ -63,7 +63,7 @@ const EditProfileScreen = ({ route, navigation }) => {
               color: 'white',
               marginBottom: 5,
               height: 40,
-              borderColor: 'grey',
+              borderColor: '#303030',
               borderWidth: 1,
               borderRadius: 10,
               paddingHorizontal: 10,
@@ -87,7 +87,7 @@ const EditProfileScreen = ({ route, navigation }) => {
               color: 'white',
               marginBottom: 5,
               height: 40,
-              borderColor: 'grey',
+              borderColor: '#303030',
               borderWidth: 1,
               borderRadius: 10,
               paddingHorizontal: 10,
@@ -111,7 +111,7 @@ const EditProfileScreen = ({ route, navigation }) => {
               color: 'white',
               marginBottom: 5,
               height: 40,
-              borderColor: 'grey',
+              borderColor: '#303030',
               borderWidth: 1,
               borderRadius: 10,
               paddingHorizontal: 10,
@@ -130,7 +130,7 @@ const EditProfileScreen = ({ route, navigation }) => {
               color: '#3493D9',
               borderTopWidth: 1, // Top border
               borderBottomWidth: 1, // Middle border (bottom of the first text)
-              borderColor: '#888',
+              borderColor: '#303030',
               padding: 10,
             }}
           >
@@ -142,7 +142,7 @@ const EditProfileScreen = ({ route, navigation }) => {
               ...globalStyles.text,
               color: '#3493D9',
               borderBottomWidth: 1, // Bottom border
-              borderColor: '#888',
+              borderColor: '#303030',
               padding: 10,
             }}
           >
